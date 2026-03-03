@@ -1,0 +1,123 @@
+body {
+  font-family: "Lexend Peta", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  /* pushes logo left, nav right */
+  align-items: center;
+  padding: 24px 40px;
+}
+
+.navLogo {
+  font-size: 65px;
+  color: white;
+  letter-spacing: 0.2em;
+  font-weight: 300;
+  padding-top: 30px;
+}
+
+.navLinks {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+.navLinks a {
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+}
+
+.navCta {
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  padding: 8px 14px;
+  border-radius: 12px;
+  transition: background-color 0.2s ease 0.1s;
+
+}
+
+.navCta:hover {
+  background-color: rgba(202, 228, 220, 0.393);
+}
+
+.navLinks a:not(.navCta) {
+  position: relative;
+  text-decoration: none;
+  color: white;
+  padding-bottom: 4px;
+}
+
+.navLinks a:not(.navCta)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0.8px;
+  background: white;
+
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.navLinks a:not(.navCta):hover::after {
+  transform: scaleX(1);
+}
+
+.heroBackground {
+  position: absolute;
+  inset: 0;
+  background: url("../assets/Images/FuturiscticBathroom.jpg") center/cover no-repeat;
+  z-index: 0;
+}
+
+.nav {
+  position: relative;
+  z-index: 2;
+}
+
+.hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.177), rgba(22, 22, 26, 0.374)), url("/Assets/Images/FuturiscticBathroom.jpg");
+  border-radius: 18px 18px 300px 300px;
+
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.heroContent {
+  color: white;
+
+  flex: 0.7;
+  /* fills remaining height under nav */
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.heroContent h1 {
+  font-size: 60px;
+  letter-spacing: 15px;
+  font-weight: 300;
+}
+
+.theWhat {
+  height: 100vh;
+}
