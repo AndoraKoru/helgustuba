@@ -47,18 +47,21 @@ let imgEls = [
 function mod(n, m) { return ((n % m) + m) % m; }
 
 function getLayout() {
-    const W    = strip.getBoundingClientRect().width;
-    const gap  = 16;
-    const sideW   = W * 0.24;
-    const activeW = W * 0.37;
-    const activeX = (W - activeW) / 2;
-    const prevX   = activeX - sideW - gap;
+    const W        = strip.getBoundingClientRect().width;
+    const mobile   = W < 600;
+    const gap      = mobile ? 10 : 16;
+    const sideH    = mobile ? 160 : 250;
+    const activeH  = mobile ? 200 : 300;
+    const sideW    = W * 0.24;
+    const activeW  = W * 0.37;
+    const activeX  = (W - activeW) / 2;
+    const prevX    = activeX - sideW - gap;
     return {
-        prev:   { left: prevX,                   width: sideW,   height: 250, opacity: 0.65 },
-        active: { left: activeX,                 width: activeW, height: 300, opacity: 1    },
-        next:   { left: activeX + activeW + gap, width: sideW,   height: 250, opacity: 0.65 },
-        exitL:  { left: -(sideW + gap),           width: sideW,   height: 250, opacity: 0.65 },
-        exitR:  { left: W + gap,                 width: sideW,   height: 250, opacity: 0.65 }
+        prev:   { left: prevX,                   width: sideW,   height: sideH,   opacity: 0.65 },
+        active: { left: activeX,                 width: activeW, height: activeH, opacity: 1    },
+        next:   { left: activeX + activeW + gap, width: sideW,   height: sideH,   opacity: 0.65 },
+        exitL:  { left: -(sideW + gap),          width: sideW,   height: sideH,   opacity: 0.65 },
+        exitR:  { left: W + gap,                 width: sideW,   height: sideH,   opacity: 0.65 }
     };
 }
 
@@ -80,6 +83,19 @@ function positionImages() {
 function updateText() {
     document.getElementById('slideTitle').textContent = slides[current].title;
     document.getElementById('slideDesc').textContent  = slides[current].desc;
+    renderDots();
+}
+
+function renderDots() {
+    const dotsEl = document.getElementById('theWhatDots');
+    dotsEl.innerHTML = slides.map((_, i) =>
+        `<button class="theWhatDot${i === current ? ' active' : ''}" aria-label="Slaid ${i + 1}"></button>`
+    ).join('');
+    dotsEl.querySelectorAll('.theWhatDot').forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+            if (i !== current) goTo(i > current ? 'next' : 'prev');
+        });
+    });
 }
 
 function goTo(direction) {
@@ -157,3 +173,11 @@ imgEls[2].src = slides[mod(current + 1, slides.length)].img;
 positionImages();
 updateText();
 window.addEventListener('resize', positionImages);
+
+// Swipe support
+let touchStartX = 0;
+strip.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+strip.addEventListener('touchend', e => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) goTo(diff > 0 ? 'next' : 'prev');
+}, { passive: true });

@@ -4,6 +4,10 @@ body {
   font-weight: 300;
 }
 
+p {
+  font-family: "Inter", sans-serif;
+}
+
 .nav {
   display: flex;
   justify-content: space-between;
@@ -24,6 +28,114 @@ body {
   display: flex;
   gap: 28px;
   align-items: center;
+}
+
+.hamburger {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.hamburger img {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1);
+}
+
+.mobileMenu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  z-index: 100;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.mobileMenu.open {
+  display: flex;
+}
+
+.mobileMenuHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 28px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.mobileMenuLogo {
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  color: #111;
+}
+
+.mobileMenuClose {
+  background: transparent;
+  border: none;
+  font-family: "Lexend Peta", sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  color: #111;
+  cursor: pointer;
+}
+
+.mobileMenuNav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobileMenuItem {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 22px 28px;
+  border-bottom: 1px solid #e8e8e8;
+  text-decoration: none;
+  color: #111;
+  transition: background 0.15s;
+}
+
+.mobileMenuItem:first-child {
+  border-top: 1px solid #e8e8e8;
+}
+
+.mobileMenuItem:hover {
+  background: #f5f5f5;
+}
+
+.mobileMenuNum {
+  font-size: 12px;
+  font-weight: 300;
+  color: #888;
+  min-width: 24px;
+}
+
+.mobileMenuLabel {
+  font-size: 28px;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  flex: 1;
+}
+
+.mobileMenuArrow {
+  font-size: 18px;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .navLinks {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
 }
 
 .navLinks a {
@@ -87,7 +199,6 @@ body {
 
   position: relative;
   min-height: 100vh;
-  overflow: hidden;
 
   display: flex;
   flex-direction: column;
@@ -174,7 +285,7 @@ body {
 }
 
 .slideDesc {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.7;
   color: #444;
   margin: 0;
@@ -184,6 +295,430 @@ body {
 .theWhatImages {
   position: relative;
   height: 300px;
+}
+
+.theWhatDots {
+  display: none;
+  justify-content: center;
+  gap: 8px;
+  padding: 20px 0 32px;
+}
+
+.theWhatDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: none;
+  background: #ccc;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s;
+}
+
+.theWhatDot.active {
+  background: #111;
+}
+
+@media (max-width: 600px) {
+  .theWhat {
+    padding: 48px 0 0;
+  }
+
+  .theWhatTop {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 0 24px 32px;
+  }
+
+  .theWhatLeft h2 {
+    font-size: 26px;
+    margin-bottom: 0;
+  }
+
+  .theWhatArrows {
+    display: none;
+  }
+
+  .theWhatImages {
+    height: 200px;
+  }
+
+  .theWhatDots {
+    display: flex;
+  }
+}
+
+.kataloog {
+  padding: 80px 0 0;
+}
+
+.kataloogTitle {
+  text-align: center;
+  font-size: 72px;
+  font-weight: 100;
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
+  margin: 0 0 48px;
+}
+
+.kataloogStage {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 48px;
+}
+
+.kataloogStage:last-child {
+  margin-bottom: 0;
+}
+
+@keyframes kataloogSlideIn {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(0); }
+}
+
+.kataloogImg.sliding {
+  animation: kataloogSlideIn 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.kataloogImg {
+  display: block;
+  width: calc(100% - 640px); /* card is 700px wide, 60px overlap */
+  height: 827px;
+  object-fit: cover;
+}
+
+.kataloogCard {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background: white;
+  padding: 40px 48px;
+  width: 700px;
+  height: 530px;
+  border-radius: 16px 0 0 16px;
+  box-shadow: -16px 11px 26.7px 0 rgba(34, 33, 33, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Medium desktop */
+@media (max-width: 1200px) {
+  .kataloogImg {
+    width: calc(48% + 40px); /* card is 52% wide, 40px overlap */
+    height: 620px;
+  }
+  .kataloogCard {
+    width: 52%;
+    height: 460px;
+    padding: 32px 40px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .kataloogTitle {
+    font-size: 52px;
+  }
+  .kataloogStage {
+    display: flex;
+    flex-direction: column;
+  }
+  .kataloogImg {
+    width: 100%;
+    height: 360px;
+  }
+  .kataloogCard {
+    position: static;
+    transform: none;
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 32px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 540px) {
+  .kataloogTitle {
+    font-size: 40px;
+    margin-bottom: 28px;
+  }
+  .kataloogImg {
+    height: 260px;
+  }
+  .kataloogCard {
+    padding: 24px;
+  }
+  .kataloogCard {
+    padding: 24px;
+  }
+}
+
+.kataloogName {
+  font-size: 20px;
+  font-family: "Lexend Peta", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  margin: 0 0 16px;
+}
+
+.kataloogSubtitle {
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: #333;
+  margin: 0 0 20px;
+}
+
+.kataloogFeatures {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+}
+
+.kataloogFeatures li {
+  font-size: 13px;
+  line-height: 1.65;
+  color: #333;
+  font-family: "Inter", sans-serif;
+}
+
+.kataloogSpecs {
+  margin: 0 0 32px;
+}
+
+.specRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 13px;
+}
+
+.specRow:first-child {
+  border-top: 1px solid #eee;
+}
+
+.specRow dt {
+  color: #777;
+  font-weight: 300;
+}
+
+.specRow dd {
+  margin: 0;
+  color: #111;
+  font-weight: 300;
+}
+
+.kataloogArrows {
+  display: flex;
+  gap: 10px;
+}
+
+.kataloogDownload {
+  margin-left: auto;
+  background: white;
+  border: 1.5px solid #555;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-family: "Lexend Peta", sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  color: #111;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.kataloogDownload:hover {
+  background: #f0f0f0;
+}
+
+.howAndWho {
+  padding: 200px 170px;
+}
+
+@media (max-width: 1200px) {
+  .howAndWho {
+    padding: 80px 60px;
+  }
+}
+
+@media (max-width: 900px) {
+  .howAndWho {
+    padding: 60px 40px;
+  }
+  .howAndWhoGrid {
+    gap: 40px;
+  }
+  .howAndWhoCol h2 {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 600px) {
+  .howAndWho {
+    padding: 48px 24px;
+  }
+  .howAndWhoGrid {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+.howAndWhoGrid {
+  display: flex;
+  gap: 60px;
+}
+
+.howAndWhoCol {
+  flex: 1;
+}
+
+.howAndWhoCol h2 {
+  font-size: 32px;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  line-height: 1.3;
+  text-transform: uppercase;
+  margin: 0 0 40px;
+}
+
+.howAndWhoCol p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #444;
+  margin: 0;
+}
+
+.howAndWhoCol strong {
+  font-weight: 600;
+  color: #111;
+}
+
+.faq {
+  padding: 100px 350px;
+}
+
+.faqInner {
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;
+}
+
+.faqLeft {
+  flex: 0 0 320px;
+}
+
+.faqLeft h2 {
+  font-size: 40px;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  line-height: 1.3;
+  text-transform: uppercase;
+  margin: 0 0 32px;
+}
+
+.faqLeft p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #444;
+  margin: 0 0 28px;
+}
+
+.faqMore {
+  font-size: 14px;
+  font-weight: 300;
+  color: #111;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #111;
+  padding-bottom: 2px;
+  transition: opacity 0.2s;
+}
+
+.faqMore:hover {
+  opacity: 0.5;
+}
+
+.faqRight {
+  flex: 1;
+}
+
+.faqItem {
+  border-bottom: 1px solid #ddd;
+}
+
+.faqItem:first-child {
+  border-top: 1px solid #ddd;
+}
+
+.faqQuestion {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  border: none;
+  padding: 22px 0;
+  cursor: pointer;
+  font-family: "Lexend Peta", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  color: #111;
+  text-align: left;
+}
+
+.faqIcon {
+  font-size: 20px;
+  font-weight: 200;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+.faqAnswer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.faqItem.open .faqAnswer {
+  max-height: 200px;
+}
+
+.faqAnswer p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #444;
+  margin: 0 0 22px;
+}
+
+@media (max-width: 1200px) {
+  .faq {
+    padding: 80px 60px;
+  }
+}
+
+@media (max-width: 900px) {
+  .faqInner {
+    flex-direction: column;
+    gap: 48px;
+  }
+  .faqLeft {
+    flex: none;
+  }
+}
+
+@media (max-width: 540px) {
+  .faq {
+    padding: 60px 24px;
+  }
 }
 
 .featureImg {

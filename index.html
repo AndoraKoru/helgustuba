@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Lexend+Peta:wght@100;200;300;400&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Peta:wght@100;200;300;400&family=Inter:wght@300;400;600&display=swap"
         rel="stylesheet">
 </head>
 
@@ -32,6 +32,49 @@
                 <a href="#">KKK</a>
                 <a href="#" class="navCta">Võtan ühendust!</a>
             </nav>
+
+            <button class="hamburger" id="hamburger" aria-label="Menüü">
+                <img src="Assets/Images/Icons/menu.png" alt="Menüü">
+            </button>
+
+            <div class="mobileMenu" id="mobileMenu">
+                <div class="mobileMenuHeader">
+                    <div class="mobileMenuLogo">HELGUS</div>
+                    <button class="mobileMenuClose" id="mobileMenuClose">Close</button>
+                </div>
+                <nav class="mobileMenuNav">
+                    <a href="#" class="mobileMenuItem">
+                        <span class="mobileMenuNum">01</span>
+                        <span class="mobileMenuLabel">Omadused</span>
+                        <span class="mobileMenuArrow">↗</span>
+                    </a>
+                    <a href="#" class="mobileMenuItem">
+                        <span class="mobileMenuNum">02</span>
+                        <span class="mobileMenuLabel">Põhjused</span>
+                        <span class="mobileMenuArrow">↗</span>
+                    </a>
+                    <a href="#" class="mobileMenuItem">
+                        <span class="mobileMenuNum">03</span>
+                        <span class="mobileMenuLabel">Paigaldus</span>
+                        <span class="mobileMenuArrow">↗</span>
+                    </a>
+                    <a href="#" class="mobileMenuItem">
+                        <span class="mobileMenuNum">04</span>
+                        <span class="mobileMenuLabel">Kataloog</span>
+                        <span class="mobileMenuArrow">↗</span>
+                    </a>
+                    <a href="#" class="mobileMenuItem">
+                        <span class="mobileMenuNum">05</span>
+                        <span class="mobileMenuLabel">KKK</span>
+                        <span class="mobileMenuArrow">↗</span>
+                    </a>
+                    <a href="#" class="mobileMenuItem">
+                        <span class="mobileMenuNum">06</span>
+                        <span class="mobileMenuLabel">Võtan ühendust!</span>
+                        <span class="mobileMenuArrow">↗</span>
+                    </a>
+                </nav>
+            </div>
         </header>
 
         <div class="heroContent">
@@ -59,9 +102,163 @@
             <img id="imgActive" class="featureImg" src="" alt="">
             <img id="imgNext" class="featureImg" src="" alt="">
         </div>
+        <div class="theWhatDots" id="theWhatDots"></div>
+    </section>
+
+    <section class="howAndWho">
+        <div class="howAndWhoGrid">
+            <div class="howAndWhoCol">
+                <h2>KUIDAS<br>PAIGALDATAKSE?</h2>
+                <p><strong>Termostaatiline iste</strong> igast juttu blablabla. Ja siis siin on nagu jutt selle omaduse-pildi kohta, mis on parasjagu suurem eksole blablabla.</p>
+            </div>
+            <div class="howAndWhoCol">
+                <h2>KELLELE SOBIB?</h2>
+                <p><strong>Termostaatiline iste</strong> igast juttu blablabla. Ja siis siin on nagu jutt selle omaduse-pildi kohta, mis on parasjagu suurem eksole blablabla.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="kataloog">
+        <h2 class="kataloogTitle">kataloog</h2>
+
+        <div class="kataloogStage">
+            <img class="kataloogImg" src="" alt="">
+            <div class="kataloogCard">
+                <p class="kataloogName"></p>
+                <p class="kataloogSubtitle"></p>
+                <ul class="kataloogFeatures"></ul>
+                <dl class="kataloogSpecs"></dl>
+                <div class="kataloogArrows">
+                    <button class="arrow kataloogPrev" aria-label="Eelmine">&#8592;</button>
+                    <button class="arrow kataloogNext" aria-label="Järgmine">&#8594;</button>
+                    <a class="kataloogDownload" href="#">Lae alla tooteleht</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="kataloogStage">
+            <img class="kataloogImg" src="" alt="">
+            <div class="kataloogCard">
+                <p class="kataloogName"></p>
+                <p class="kataloogSubtitle"></p>
+                <ul class="kataloogFeatures"></ul>
+                <dl class="kataloogSpecs"></dl>
+                <div class="kataloogArrows">
+                    <button class="arrow kataloogPrev" aria-label="Eelmine">&#8592;</button>
+                    <button class="arrow kataloogNext" aria-label="Järgmine">&#8594;</button>
+                    <a class="kataloogDownload" href="#">Lae alla tooteleht</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="kataloogStage">
+            <img class="kataloogImg" src="" alt="">
+            <div class="kataloogCard">
+                <p class="kataloogName"></p>
+                <p class="kataloogSubtitle"></p>
+                <ul class="kataloogFeatures"></ul>
+                <dl class="kataloogSpecs"></dl>
+                <div class="kataloogArrows">
+                    <button class="arrow kataloogPrev" aria-label="Eelmine">&#8592;</button>
+                    <button class="arrow kataloogNext" aria-label="Järgmine">&#8594;</button>
+                    <a class="kataloogDownload" href="#">Lae alla tooteleht</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="kataloogStage">
+            <img class="kataloogImg" src="" alt="">
+            <div class="kataloogCard">
+                <p class="kataloogName"></p>
+                <p class="kataloogSubtitle"></p>
+                <ul class="kataloogFeatures"></ul>
+                <dl class="kataloogSpecs"></dl>
+                <div class="kataloogArrows">
+                    <button class="arrow kataloogPrev" aria-label="Eelmine">&#8592;</button>
+                    <button class="arrow kataloogNext" aria-label="Järgmine">&#8594;</button>
+                    <a class="kataloogDownload" href="#">Lae alla tooteleht</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="faq">
+        <div class="faqInner">
+            <div class="faqLeft">
+                <h2>KAS ON<br>KÜSIMUSI?</h2>
+                <p>Helge tualett on uus kogemus — oleme siin, et aidata sul iga samm selgeks teha.</p>
+                <a href="#" class="faqMore">Rohkem KKK &rarr;</a>
+            </div>
+            <div class="faqRight">
+                <div class="faqItem open">
+                    <button class="faqQuestion" aria-expanded="true">
+                        <span>Kas paigaldus on keeruline?</span>
+                        <span class="faqIcon">−</span>
+                    </button>
+                    <div class="faqAnswer">
+                        <p>Paigaldus on lihtne ja ei nõua erilisi tööriistu. Integreeritud veepaak tähendab, et pole vaja seina sisse ehitada — sobib enamiku standardsete WC-kohtade jaoks.</p>
+                    </div>
+                </div>
+                <div class="faqItem">
+                    <button class="faqQuestion" aria-expanded="false">
+                        <span>Milline on hooldus?</span>
+                        <span class="faqIcon">+</span>
+                    </button>
+                    <div class="faqAnswer">
+                        <p>Automaatne UV-steriliseerimine ja katlakivi eemaldamise funktsioon hoiavad seadme puhta minimaalse vaevaga. Regulaarne puhastus ei ole keerulisem kui tavalise WC puhul.</p>
+                    </div>
+                </div>
+                <div class="faqItem">
+                    <button class="faqQuestion" aria-expanded="false">
+                        <span>Mis saab elektrikatkestuse korral?</span>
+                        <span class="faqIcon">+</span>
+                    </button>
+                    <div class="faqAnswer">
+                        <p>Põhifunktsioonid nagu loputus toimivad ka ilma elektrita. Nutikas funktsionaalsus vajab toiteallikat, kuid WC jääb täielikult kasutatavaks.</p>
+                    </div>
+                </div>
+                <div class="faqItem">
+                    <button class="faqQuestion" aria-expanded="false">
+                        <span>Kas toode sobib kõikidele vannitubadele?</span>
+                        <span class="faqIcon">+</span>
+                    </button>
+                    <div class="faqAnswer">
+                        <p>Jah, Helge tualett on disainitud universaalseks. Kompaktne seinalekinnituv lahendus sobib nii väikestele kui suurematele ruumidele.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <script src="JS/functions.js"></script>
+    <script src="JS/kataloog.js"></script>
+    <script>
+        document.getElementById('hamburger').addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.toggle('open');
+        });
+
+        document.getElementById('mobileMenuClose').addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.remove('open');
+        });
+
+        document.querySelectorAll('.faqQuestion').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
+                const isOpen = item.classList.contains('open');
+                document.querySelectorAll('.faqItem').forEach(i => {
+                    i.classList.remove('open');
+                    i.querySelector('.faqIcon').textContent = '+';
+                    i.querySelector('.faqQuestion').setAttribute('aria-expanded', 'false');
+                });
+                if (!isOpen) {
+                    item.classList.add('open');
+                    btn.querySelector('.faqIcon').textContent = '−';
+                    btn.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+    </script>
 
 </body>
 
