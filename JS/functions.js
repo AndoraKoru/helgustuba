@@ -37,12 +37,11 @@ let isAnimating = false;
 const strip  = document.querySelector('.theWhatImages');
 const textEl = document.querySelector('.theWhatRight');
 
-// Rotating array — [0]=prev, [1]=active, [2]=next, [3]=buffer (off-screen incoming)
+// Rotating array — [0]=prev, [1]=active, [2]=next
 let imgEls = [
     document.getElementById('imgPrev'),
     document.getElementById('imgActive'),
-    document.getElementById('imgNext'),
-    document.getElementById('imgBuffer')
+    document.getElementById('imgNext')
 ];
 
 function mod(n, m) { return ((n % m) + m) % m; }
@@ -55,11 +54,11 @@ function getLayout() {
     const activeX = (W - activeW) / 2;
     const prevX   = activeX - sideW - gap;
     return {
-        prev:   { left: prevX,              width: sideW,   height: 250, opacity: 0.65 },
-        active: { left: activeX,            width: activeW, height: 300, opacity: 1    },
-        next:   { left: activeX + activeW + gap, width: sideW, height: 250, opacity: 0.65 },
-        exitL:  { left: prevX - sideW - gap, width: sideW,  height: 250, opacity: 0.65 },
-        exitR:  { left: W + gap,            width: sideW,   height: 250, opacity: 0.65 }
+        prev:   { left: prevX,                   width: sideW,   height: 250, opacity: 0.65 },
+        active: { left: activeX,                 width: activeW, height: 300, opacity: 1    },
+        next:   { left: activeX + activeW + gap, width: sideW,   height: 250, opacity: 0.65 },
+        exitL:  { left: -(sideW + gap),           width: sideW,   height: 250, opacity: 0.65 },
+        exitR:  { left: W + gap,                 width: sideW,   height: 250, opacity: 0.65 }
     };
 }
 
@@ -76,7 +75,6 @@ function positionImages() {
     setPos(imgEls[0], L.prev);
     setPos(imgEls[1], L.active);
     setPos(imgEls[2], L.next);
-    setPos(imgEls[3], L.exitR); // buffer hidden off-screen
 }
 
 function updateText() {
@@ -100,34 +98,37 @@ function goTo(direction) {
     textEl.style.transition = 'none';
     textEl.style.transform  = `translateX(${direction === 'next' ? 40 : -40}px)`;
 
+    // Create a temporary incoming image, placed off-screen on the entry side
+    const buffer = document.createElement('img');
+    buffer.className = 'featureImg';
+    strip.appendChild(buffer);
+    buffer.style.transition = 'none';
+
     if (direction === 'next') {
-        // Load new next into buffer, place it off-screen right (no transition)
-        imgEls[3].src = slides[mod(current + 1, slides.length)].img;
-        imgEls[3].style.transition = 'none';
-        setPos(imgEls[3], L.exitR);
+        buffer.src = slides[mod(current + 1, slides.length)].img;
+        setPos(buffer, L.exitR);
     } else {
-        // Load new prev into buffer, place it off-screen left (no transition)
-        imgEls[3].src = slides[mod(current - 1, slides.length)].img;
-        imgEls[3].style.transition = 'none';
-        setPos(imgEls[3], L.exitL);
+        buffer.src = slides[mod(current - 1, slides.length)].img;
+        setPos(buffer, L.exitL);
     }
 
     // Force reflow so browser registers all start positions before animating
-    imgEls[3].getBoundingClientRect();
+    strip.getBoundingClientRect();
 
-    // Animate all four images simultaneously
+    // Animate all four simultaneously
     imgEls.forEach(el => el.style.transition = imgT);
+    buffer.style.transition = imgT;
 
     if (direction === 'next') {
-        setPos(imgEls[0], L.exitL);   // prev   → exit left
-        setPos(imgEls[1], L.prev);    // active → prev
-        setPos(imgEls[2], L.active);  // next   → active
-        setPos(imgEls[3], L.next);    // buffer → next (slides in from right)
+        setPos(imgEls[0], L.exitL);  // prev   → exit left
+        setPos(imgEls[1], L.prev);   // active → prev
+        setPos(imgEls[2], L.active); // next   → active
+        setPos(buffer,    L.next);   // buffer → next (slides in from right)
     } else {
-        setPos(imgEls[2], L.exitR);   // next   → exit right
-        setPos(imgEls[1], L.next);    // active → next
-        setPos(imgEls[0], L.active);  // prev   → active
-        setPos(imgEls[3], L.prev);    // buffer → prev (slides in from left)
+        setPos(imgEls[2], L.exitR);  // next   → exit right
+        setPos(imgEls[1], L.next);   // active → next
+        setPos(imgEls[0], L.active); // prev   → active
+        setPos(buffer,    L.prev);   // buffer → prev (slides in from left)
     }
 
     // Slide text in
@@ -136,13 +137,11 @@ function goTo(direction) {
 
     setTimeout(() => {
         if (direction === 'next') {
-            // [prev, active, next, buffer] = [old active, old next, old buffer, old prev]
-            imgEls = [imgEls[1], imgEls[2], imgEls[3], imgEls[0]];
-            imgEls[3].src = slides[mod(current + 2, slides.length)].img;
+            imgEls[0].remove();
+            imgEls = [imgEls[1], imgEls[2], buffer];
         } else {
-            // [prev, active, next, buffer] = [old buffer, old prev, old active, old next]
-            imgEls = [imgEls[3], imgEls[0], imgEls[1], imgEls[2]];
-            imgEls[3].src = slides[mod(current - 2, slides.length)].img;
+            imgEls[2].remove();
+            imgEls = [buffer, imgEls[0], imgEls[1]];
         }
         isAnimating = false;
     }, 400);
@@ -151,11 +150,10 @@ function goTo(direction) {
 document.getElementById('prevBtn').addEventListener('click', () => goTo('prev'));
 document.getElementById('nextBtn').addEventListener('click', () => goTo('next'));
 
-// Set initial srcs (preload buffer too so first click has no delay)
+// Set initial srcs
 imgEls[0].src = slides[mod(current - 1, slides.length)].img;
 imgEls[1].src = slides[current].img;
 imgEls[2].src = slides[mod(current + 1, slides.length)].img;
-imgEls[3].src = slides[mod(current + 2, slides.length)].img;
 positionImages();
 updateText();
 window.addEventListener('resize', positionImages);
