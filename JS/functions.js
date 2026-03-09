@@ -1,17 +1,17 @@
 const slides = [
     {
-        title: "Soojendatud iste",
-        desc: "Reguleeritav istemperatuur tagab mugava kasutuskogemuse ka külmadel hommikutel.",
+        title: "Jaapani vannitoakultuurist inspireeritud Eesti bränd",
+        desc: "Iga helguse tualett on saanud oma nime kodumaiste joastike järgi: Jägala, Ukuoru, Kohina ja Valaste. Toodete tehnoloogiline pool on koostatud arvestades Eesti nüansside ja nõuetega. ",
         img: "Assets/Images/Functions/soojendatudIste.jpg"
     },
     {
-        title: "Ise avanev WC kaas",
-        desc: "Liikumisandur avab ja sulgeb kaane automaatselt – hügieeniline ja mugav lahendus igapäevaseks kasutamiseks.",
+        title: "Kareda vee filter",
+        desc: "Varem on tarkade tualettide head toimimist takistanud kare vesi. Helguse tualettide integreeritud filter pehendab vett, kaitstes seadet kaltsifikatsiooni eest ja pikendades selle eluiga. See on meie jaoks üks olulisemaid detaile.",
         img: "Assets/Images/Functions/iseAvanevWCKaas.jpg"
     },
     {
-        title: "Võimas kuivatus",
-        desc: "Sisseehitatud kuivati kuivatab tõhusalt ja kiiresti, asendades täielikult paberrätiku kasutamise vajaduse.",
+        title: "Reguleeritava temperatuuriga prillaud",
+        desc: "Soojus lisab igapäevasesse kasutusse selgelt tajutavat mugavust – eriti jahedatel hommikutel või külmemas vannitoas. Kui juba ära harjud, siis tagasiteed enam ei ole. Muidugi võib prilllaua jätta ka külmaks,",
         img: "Assets/Images/Functions/võimasKuivatus.jpg"
     },
     {
@@ -49,22 +49,24 @@ function mod(n, m) { return ((n % m) + m) % m; }
 function getLayout() {
     const W        = strip.getBoundingClientRect().width;
     const mobile   = W < 600;
-    const gap      = mobile ? 10 : 16;
+    const gap      = mobile ? 10 : 28;
     const containerH = strip.getBoundingClientRect().height;
-    const sideH    = mobile ? Math.round(containerH * 0.7) : Math.round(containerH * 0.72);
-    const activeH  = containerH;
-    const sideTop  = (containerH - sideH) / 2;
-    const activeTop = 0;
-    const sideW    = W * 0.24;
-    const activeW  = W * 0.37;
-    const activeX  = (W - activeW) / 2;
-    const prevX    = activeX - sideW - gap;
+    const activeW = mobile ? Math.round(W * 0.72) : 490;
+    const activeH = mobile ? Math.round(containerH * 0.85) : 313;
+    const sideW   = mobile ? Math.round(W * 0.55) : 399;
+    const sideH   = mobile ? Math.round(containerH * 0.7) : 244;
+    const activeTop = (containerH - activeH) / 2;
+    const sideTop   = (containerH - sideH) / 2;
+    const activeX = (W - activeW) / 2;
+    const prevX   = activeX - sideW - gap;
+    // shiftX so next image is exactly 2/3 visible (1/3 off right edge)
+    const shiftX  = mobile ? 0 : (W - activeW) / 2 - sideW * (2 / 3) - gap;
     return {
-        prev:   { left: prevX,                   top: sideTop,   width: sideW,   height: sideH,   opacity: 0.65 },
-        active: { left: activeX,                 top: activeTop, width: activeW, height: activeH, opacity: 1    },
-        next:   { left: activeX + activeW + gap, top: sideTop,   width: sideW,   height: sideH,   opacity: 0.65 },
-        exitL:  { left: -(sideW + gap),          top: sideTop,   width: sideW,   height: sideH,   opacity: 0.65 },
-        exitR:  { left: W + gap,                 top: sideTop,   width: sideW,   height: sideH,   opacity: 0.65 }
+        prev:   { left: prevX                      + shiftX, top: sideTop,   width: sideW,   height: sideH,   opacity: 0.65 },
+        active: { left: activeX                    + shiftX, top: activeTop, width: activeW, height: activeH, opacity: 1    },
+        next:   { left: activeX + activeW + gap    + shiftX, top: sideTop,   width: sideW,   height: sideH,   opacity: 0.65 },
+        exitL:  { left: -(sideW + gap),                      top: sideTop,   width: sideW,   height: sideH,   opacity: 0.65 },
+        exitR:  { left: W + gap,                             top: sideTop,   width: sideW,   height: sideH,   opacity: 0.65 }
     };
 }
 

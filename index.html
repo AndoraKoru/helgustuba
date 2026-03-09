@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Lexend+Peta:wght@100;200;300;400&family=Inter:wght@300;400;600&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Peta:wght@100;200;300;400&display=swap"
         rel="stylesheet">
 </head>
 
@@ -34,7 +34,9 @@
             </nav>
 
             <button class="hamburger" id="hamburger" aria-label="Menüü">
-                <img src="Assets/Images/Icons/menu.png" alt="Menüü">
+                <span class="hamburgerBar"></span>
+                <span class="hamburgerBar"></span>
+                <span class="hamburgerBar"></span>
             </button>
 
             <div class="mobileMenu" id="mobileMenu">
@@ -78,8 +80,8 @@
         </header>
 
         <div class="heroContent">
-            <h1>21. sajandi mugavus</h1>
-            <p>blablabla</p>
+            <h1>avasta 21. sajandi mugavus</h1>
+            <p>jaapani tehnoloogiast inspireeritud nutikad tualetid</p>
         </div>
 
     </section>
@@ -105,18 +107,29 @@
         <div class="theWhatDots" id="theWhatDots"></div>
     </section>
 
-    <section class="howAndWho">
-        <div class="howAndWhoGrid">
-            <div class="howAndWhoCol">
-                <h2>KUIDAS<br>PAIGALDATAKSE?</h2>
-                <p><strong>Termostaatiline iste</strong> igast juttu blablabla. Ja siis siin on nagu jutt selle omaduse-pildi kohta, mis on parasjagu suurem eksole blablabla.</p>
+    <section class="stats">
+        <div class="statsGrid">
+            <div class="statsCard statsCardTop">
+                <span class="statsPct">75%</span>
+                <p class="statsDesc">vähem paberit,<br>rohkem puhtust</p>
             </div>
-            <div class="howAndWhoCol">
-                <h2>KELLELE SOBIB?</h2>
-                <p><strong>Termostaatiline iste</strong> igast juttu blablabla. Ja siis siin on nagu jutt selle omaduse-pildi kohta, mis on parasjagu suurem eksole blablabla.</p>
+            <div class="statsRow">
+                <div class="statsCard">
+                    <span class="statsPct">55%</span>
+                    <p class="statsDesc">väiksem veekulu</p>
+                </div>
+                <div class="statsCard statsCardDark">
+                    <span class="statsPct">77%</span>
+                    <p class="statsDesc">tunneb end puhtamana</p>
+                </div>
             </div>
         </div>
+        <div class="statsText">
+            <h2 class="statsHeading">KÕRGEM HÜGIEEN.<br>TEADLIKUM<br>RESSURSIKASUTUS.</h2>
+            <p class="statsBody">Lisaks korteritele ja majadele nii vanemal pinnal kui ka uusarendustes, toetavad Helguse tooted kõrget hügieeni- ja mugavusstandardit ka hotellides, restoranides, kauplustes, haiglates, hooldekodudes ja teistes avalikes ruumides.</p>
+        </div>
     </section>
+
 
     <section class="kataloog">
         <h2 class="kataloogTitle">kataloog</h2>
@@ -231,6 +244,7 @@
         </div>
     </section>
 
+    <script src="JS/stats.js"></script>
     <script src="JS/functions.js"></script>
     <script src="JS/kataloog.js"></script>
     <script>
