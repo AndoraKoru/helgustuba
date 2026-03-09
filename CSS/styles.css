@@ -129,7 +129,7 @@ p {
   color: #555;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1265px) {
   .navLinks {
     display: none;
   }
@@ -198,7 +198,7 @@ p {
   border-radius: 18px 18px 300px 300px;
 
   position: relative;
-  min-height: 100vh;
+  min-height: 95vh;
 
   display: flex;
   flex-direction: column;
@@ -231,14 +231,27 @@ p {
 
 .theWhat {
   padding: 80px 0 0;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .theWhatTop {
   display: flex;
   align-items: center;
   gap: 60px;
-  padding: 0 350px 48px;
+  padding: 0 300px 48px;
+}
+
+@media (max-width: 1200px) {
+  .theWhatTop {
+    padding: 50px 200px;
+  }
+}
+
+@media (max-width: 900px) {
+  .theWhatTop {
+    padding: 0 40px 40px;
+    gap: 40px;
+  }
 }
 
 .theWhatLeft h2 {
@@ -273,8 +286,12 @@ p {
   background: #f0f0f0;
 }
 
+.theWhatLeft {
+  flex: 2;
+}
+
 .theWhatRight {
-  flex: 1;
+  flex: 3;
   padding-top: 4px;
 }
 
@@ -294,7 +311,9 @@ p {
 
 .theWhatImages {
   position: relative;
-  height: 300px;
+  height: 500px;
+  overflow: hidden;
+  margin-top: 50px;
 }
 
 .theWhatDots {
@@ -439,6 +458,11 @@ p {
     box-shadow: none;
     padding: 32px;
   }
+  .kataloogDownload {
+    position: static;
+    display: inline-block;
+    margin: 0 0 32px 32px;
+  }
 }
 
 /* Mobile */
@@ -520,7 +544,9 @@ p {
 }
 
 .kataloogDownload {
-  margin-left: auto;
+  position: absolute;
+  bottom: 28px;
+  left: 28px;
   background: white;
   border: 1.5px solid #555;
   padding: 10px 20px;
@@ -723,7 +749,6 @@ p {
 
 .featureImg {
   position: absolute;
-  bottom: 0;
   object-fit: cover;
   border-radius: 12px;
   display: block;

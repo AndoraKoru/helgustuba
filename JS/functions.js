@@ -50,23 +50,27 @@ function getLayout() {
     const W        = strip.getBoundingClientRect().width;
     const mobile   = W < 600;
     const gap      = mobile ? 10 : 16;
-    const sideH    = mobile ? 160 : 250;
-    const activeH  = mobile ? 200 : 300;
+    const containerH = strip.getBoundingClientRect().height;
+    const sideH    = mobile ? Math.round(containerH * 0.7) : Math.round(containerH * 0.72);
+    const activeH  = containerH;
+    const sideTop  = (containerH - sideH) / 2;
+    const activeTop = 0;
     const sideW    = W * 0.24;
     const activeW  = W * 0.37;
     const activeX  = (W - activeW) / 2;
     const prevX    = activeX - sideW - gap;
     return {
-        prev:   { left: prevX,                   width: sideW,   height: sideH,   opacity: 0.65 },
-        active: { left: activeX,                 width: activeW, height: activeH, opacity: 1    },
-        next:   { left: activeX + activeW + gap, width: sideW,   height: sideH,   opacity: 0.65 },
-        exitL:  { left: -(sideW + gap),          width: sideW,   height: sideH,   opacity: 0.65 },
-        exitR:  { left: W + gap,                 width: sideW,   height: sideH,   opacity: 0.65 }
+        prev:   { left: prevX,                   top: sideTop,   width: sideW,   height: sideH,   opacity: 0.65 },
+        active: { left: activeX,                 top: activeTop, width: activeW, height: activeH, opacity: 1    },
+        next:   { left: activeX + activeW + gap, top: sideTop,   width: sideW,   height: sideH,   opacity: 0.65 },
+        exitL:  { left: -(sideW + gap),          top: sideTop,   width: sideW,   height: sideH,   opacity: 0.65 },
+        exitR:  { left: W + gap,                 top: sideTop,   width: sideW,   height: sideH,   opacity: 0.65 }
     };
 }
 
 function setPos(el, pos) {
     el.style.left    = pos.left    + 'px';
+    el.style.top     = pos.top     + 'px';
     el.style.width   = pos.width   + 'px';
     el.style.height  = pos.height  + 'px';
     el.style.opacity = pos.opacity;
@@ -104,7 +108,7 @@ function goTo(direction) {
 
     const L    = getLayout();
     const ease = 'cubic-bezier(0.4, 0, 0.2, 1)';
-    const imgT = `left 0.4s ${ease}, width 0.4s ${ease}, height 0.4s ${ease}, opacity 0.4s ${ease}`;
+    const imgT = `left 0.4s ${ease}, top 0.4s ${ease}, width 0.4s ${ease}, height 0.4s ${ease}, opacity 0.4s ${ease}`;
     const txtT = `transform 0.4s ${ease}`;
 
     current = mod(current + (direction === 'next' ? 1 : -1), slides.length);
