@@ -4,20 +4,16 @@ const products = [
         img:      "Assets/Images/Catalogue/jägalaCataloguePicture.jpg",
         imgSpecs: "Assets/Images/Catalogue/jägalaCataloguePicture2.jpg",
         pdf: "#",
-        features: [
-            "Kompaktne ja seinale kinnitatav disain – stiilne ja ruumisäästlik",
-            "Integreeritud veepaak – lihtne paigaldus ja hooldus ilma lisavaevata",
-            "Laserprojektsiooniga jalasensor – puutevaba, nutikas ja vastupidav",
-            "UV-steriliseerimine – automaatne düüsi hügieen",
-            "Veemassaaž – pakub lõõgastavat ja värskendavat kogemust",
-            "Katlakivi eemaldamise funktsioon – hoiab tualeti puhta ja katlakivivabana",
-            "Automaatne kahe loputusrežiimi tuvastus – säästab kuni 50% vett"
-        ],
+        description: "Jägala juga on Eesti loodusjõu üks selgemaid sümboleid – lai, võimas ja iseloomult põhjamaine. Sama mõte kandub ka selle mudeli disaini: nurgeline vorm meenutab paekallast, tugev siluett loob ruumis kohalolu ning puhas joonekasutus mõjub sama selgelt nagu langev veekardin.",
         specs: [
-            { label: "Mõõdud",        value: "660x415x465mm" },
-            { label: "Kaal",          value: "46.5kg"        },
-            { label: "Pinge/Sagedus", value: "220V / 50Hz"   },
-            { label: "Nimivõimsus",   value: "1150W"         }
+            { label: "Mõõdud",           value: "660x415x465mm"                                              },
+            { label: "Kaal",             value: "46.5kg"                                                    },
+            { label: "Pinge/Sagedus",    value: "220V / 50Hz"                                               },
+            { label: "Garantii",         value: "2 + 5 aastat"                                              },
+            { label: "Loputusvee kogus", value: "2,7 l / 4,2 l"                                             },
+            { label: "Loputuskast",      value: "sisse ehitatud"                                            },
+            { label: "Väljavool",        value: "tahavooluga 180 mm (Allavooluga variant on tellitav 300-400 mm)" },
+            { label: "Sertifikaat",      value: "CE"                                                        }
         ]
     },
     {
@@ -25,20 +21,16 @@ const products = [
         img:      "Assets/Images/Catalogue/ukuoruCataloguePicture.jpg",
         imgSpecs: "Assets/Images/Catalogue/ukuoruCataloguePicture2.jpg",
         pdf: "#",
-        features: [
-            "Kompaktne ja seinale kinnitatav disain – stiilne ja ruumisäästlik",
-            "Integreeritud veepaak – lihtne paigaldus ja hooldus ilma lisavaevata",
-            "Laserprojektsiooniga jalasensor – puutevaba, nutikas ja vastupidav",
-            "UV-steriliseerimine – automaatne düüsi hügieen",
-            "Veemassaaž – pakub lõõgastavat ja värskendavat kogemust",
-            "Katlakivi eemaldamise funktsioon – hoiab tualeti puhta ja katlakivivabana",
-            "Automaatne kahe loputusrežiimi tuvastus – säästab kuni 50% vett"
-        ],
+        description: "Ukuoru on lihtsa ja voolujoonelise disainiga nutitualett, mille vorm mõjub pehmelt, puhtalt ja loomulikult. Inspireerituna Ukuoru joastiku sujuvast liikumisest, toob see mudel vannituppa tasakaalu, kergust ja vaikset elegantsi.",
         specs: [
-            { label: "Mõõdud",        value: "660x415x465mm" },
-            { label: "Kaal",          value: "46.5kg"        },
-            { label: "Pinge/Sagedus", value: "220V / 50Hz"   },
-            { label: "Nimivõimsus",   value: "1150W"         }
+            { label: "Mõõdud",           value: "660x415x465mm"                                              },
+            { label: "Kaal",             value: "46.5kg"                                                    },
+            { label: "Pinge/Sagedus",    value: "220V / 50Hz"                                               },
+            { label: "Garantii",         value: "2 + 5 aastat"                                              },
+            { label: "Loputusvee kogus", value: "2,7 l / 4,2 l"                                             },
+            { label: "Loputuskast",      value: "sisse ehitatud"                                            },
+            { label: "Väljavool",        value: "tahavooluga 180 mm (Allavooluga variant on tellitav 300-400 mm)" },
+            { label: "Sertifikaat",      value: "CE"                                                        }
         ]
     },
     {
@@ -46,20 +38,16 @@ const products = [
         img:      "Assets/Images/Catalogue/kohinaCataloguePicture.jpg",
         imgSpecs: "Assets/Images/Catalogue/kohinaCataloguePicture2.jpg",
         pdf: "#",
-        features: [
-            "Kompaktne ja seinale kinnitatav disain – stiilne ja ruumisäästlik",
-            "Integreeritud veepaak – lihtne paigaldus ja hooldus ilma lisavaevata",
-            "Laserprojektsiooniga jalasensor – puutevaba, nutikas ja vastupidav",
-            "UV-steriliseerimine – automaatne düüsi hügieen",
-            "Veemassaaž – pakub lõõgastavat ja värskendavat kogemust",
-            "Katlakivi eemaldamise funktsioon – hoiab tualeti puhta ja katlakivivabana",
-            "Automaatne kahe loputusrežiimi tuvastus – säästab kuni 50% vett"
-        ],
+        description: "Kohina on vaikse kohalolu ilu. Nagu lühike juga, mis ei mõju oma suuruse, vaid oma iseloomu ja kerge heli kaudu, toob ka see mudel vannituppa õhulisust ja elegantsust.",
         specs: [
-            { label: "Mõõdud",        value: "660x415x465mm" },
-            { label: "Kaal",          value: "46.5kg"        },
-            { label: "Pinge/Sagedus", value: "220V / 50Hz"   },
-            { label: "Nimivõimsus",   value: "1150W"         }
+            { label: "Mõõdud",           value: "660x415x465mm"                                              },
+            { label: "Kaal",             value: "46.5kg"                                                    },
+            { label: "Pinge/Sagedus",    value: "220V / 50Hz"                                               },
+            { label: "Garantii",         value: "2 + 5 aastat"                                              },
+            { label: "Loputusvee kogus", value: "2,7 l / 4,2 l"                                             },
+            { label: "Loputuskast",      value: "sisse ehitatud"                                            },
+            { label: "Väljavool",        value: "tahavooluga 180 mm (Allavooluga variant on tellitav 300-400 mm)" },
+            { label: "Sertifikaat",      value: "CE"                                                        }
         ]
     },
     {
@@ -67,20 +55,16 @@ const products = [
         img:      "Assets/Images/Catalogue/valasteCataloguePicture.jpg",
         imgSpecs: "Assets/Images/Catalogue/valasteCataloguePicture2.jpg",
         pdf: "#",
-        features: [
-            "Kompaktne ja seinale kinnitatav disain – stiilne ja ruumisäästlik",
-            "Integreeritud veepaak – lihtne paigaldus ja hooldus ilma lisavaevata",
-            "Laserprojektsiooniga jalasensor – puutevaba, nutikas ja vastupidav",
-            "UV-steriliseerimine – automaatne düüsi hügieen",
-            "Veemassaaž – pakub lõõgastavat ja värskendavat kogemust",
-            "Katlakivi eemaldamise funktsioon – hoiab tualeti puhta ja katlakivivabana",
-            "Automaatne kahe loputusrežiimi tuvastus – säästab kuni 50% vett"
-        ],
+        description: "Valaste on väljapaistva vormiga nutitualett, mille inspiratsioon pärineb Baltimaade kõrgeima tehisliku joa geoloogilisest ilust. Muudetavad värvikihtide lahendused ülaplaadil ja külgedel loovad disaini, mis meenutab paekalda kihistusi ja toob vannituppa sügavuse ning isikupära.",
         specs: [
-            { label: "Mõõdud",        value: "660x415x465mm" },
-            { label: "Kaal",          value: "46.5kg"        },
-            { label: "Pinge/Sagedus", value: "220V / 50Hz"   },
-            { label: "Nimivõimsus",   value: "1150W"         }
+            { label: "Mõõdud",           value: "660x415x465mm"                                              },
+            { label: "Kaal",             value: "46.5kg"                                                    },
+            { label: "Pinge/Sagedus",    value: "220V / 50Hz"                                               },
+            { label: "Garantii",         value: "2 + 5 aastat"                                              },
+            { label: "Loputusvee kogus", value: "2,7 l / 4,2 l"                                             },
+            { label: "Loputuskast",      value: "sisse ehitatud"                                            },
+            { label: "Väljavool",        value: "tahavooluga 180 mm (Allavooluga variant on tellitav 300-400 mm)" },
+            { label: "Sertifikaat",      value: "CE"                                                        }
         ]
     }
 ];
@@ -107,8 +91,8 @@ document.querySelectorAll('.kataloogStage').forEach((stage, i) => {
         img.classList.add('sliding');
 
         if (view === 0) {
-            subtitle.textContent    = 'Peamised omadused';
-            features.innerHTML      = product.features.map(f => `<li>${f}</li>`).join('');
+            subtitle.textContent    = 'Tootest';
+            features.innerHTML      = `<li>${product.description}</li>`;
             features.style.display  = '';
             specs.style.display     = 'none';
         } else {

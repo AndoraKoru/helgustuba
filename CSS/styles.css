@@ -222,8 +222,8 @@ p {
       rgba(0, 0, 0, 0.1) 0%,
       rgba(10, 12, 18, 0.55) 100%
     ),
-    url("/Assets/Images/FuturiscticBathroom.jpg");
-  border-radius: 18px 18px 280px 280px;
+    url("/Assets/Images/Background/desktopHeroImg.png");
+  border-radius: 0 0 280px 280px;
   position: relative;
   min-height: 95vh;
   display: flex;
@@ -242,22 +242,31 @@ p {
   justify-content: center;
   text-align: center;
   padding: 0 clamp(1.5rem, 6vw, 6rem);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .heroContent h1 {
-  font-size: clamp(1.75rem, 5.5vw, 3.75rem);
-  letter-spacing: clamp(4px, 1.2vw, 12px);
+  font-size: clamp(1.75rem, 4.6vw, 3.75rem);
+  letter-spacing: 0.17em;
   font-weight: 300;
   margin: 0;
   line-height: 1.15;
+  white-space: nowrap;
 }
 
 .heroContent p {
   margin: 0.75rem 0 0;
   font-size: clamp(0.9rem, 1.8vw, 1.2rem);
   opacity: 0.85;
-  max-width: 480px;
   line-height: 1.6;
+  white-space: nowrap;
+  animation: heroTypeReveal 2s steps(68, end) 0.4s both;
+}
+
+@keyframes heroTypeReveal {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0% 0 0); }
 }
 
 @keyframes slideInLeft {
@@ -274,7 +283,7 @@ p {
 @media (max-width: 540px) {
   .hero {
     border-radius: 0 0 80px 80px;
-    min-height: 80dvh;
+    min-height: 100dvh;
     background-image: linear-gradient(
         to bottom,
         rgba(0, 0, 0, 0.05) 0%,
@@ -296,6 +305,7 @@ p {
     letter-spacing: 0.04em;
     text-transform: uppercase;
     line-height: 1.15;
+    white-space: normal;
   }
   .heroContent p {
     margin-top: 0.2rem;
@@ -303,6 +313,9 @@ p {
     font-weight: 300;
     letter-spacing: 0.02em;
     opacity: 0.9;
+    white-space: normal;
+    animation: none;
+    clip-path: none;
   }
 }
 
@@ -375,9 +388,10 @@ p {
 
 .slideTitle {
   font-weight: 600;
+  font-family: "Lexend Peta";
   font-size: 0.9375rem;
   margin: 0 0 12px;
-  color: #8AA4B4;
+  text-transform: uppercase;
 }
 
 .slideDesc {
@@ -475,9 +489,9 @@ p {
 .kataloogTitle {
   text-align: center;
   font-size: 4.5rem;
-  font-weight: 100;
+  font-weight: 300;
   letter-spacing: 0.12em;
-  text-transform: lowercase;
+  text-transform: uppercase;
   margin: 0 0 48px;
 }
 
@@ -513,9 +527,9 @@ p {
   right: 0;
   transform: translateY(-50%);
   background: white;
-  padding: 40px 48px;
+  padding: 40px 48px 40px 80px;
   width: 700px;
-  height: 530px;
+  height: 560px;
   border-radius: 16px 0 0 16px;
   box-shadow: -16px 11px 26.7px 0 rgba(34, 33, 33, 0.25);
   display: flex;
@@ -526,20 +540,37 @@ p {
 /* Medium desktop */
 @media (max-width: 1200px) {
   .kataloogImg {
-    width: calc(48% + 40px); /* card is 52% wide, 40px overlap */
+    width: calc(48% + 40px);
     height: 620px;
   }
   .kataloogCard {
     width: 52%;
-    height: 460px;
-    padding: 32px 40px;
+    height: 560px;
+    padding: 32px 40px 32px 60px;
+  }
+  .kataloogName {
+    font-size: 1.5rem;
+  }
+}
+
+/* Large tablet */
+@media (max-width: 1050px) {
+  .kataloogCard {
+    padding: 28px 32px 28px 48px;
+  }
+  .kataloogName {
+    font-size: 1.25rem;
+  }
+  .kataloogFeatures li,
+  .specRow {
+    font-size: 0.875rem;
   }
 }
 
 /* Tablet */
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
   .kataloogTitle {
-    font-size: 3.25rem;
+    font-size: 3rem;
   }
   .kataloogStage {
     display: flex;
@@ -556,63 +587,141 @@ p {
     height: auto;
     border-radius: 0;
     box-shadow: none;
-    padding: 32px;
+    padding: 32px 40px;
+    box-sizing: border-box;
+    overflow: hidden;
   }
-  .kataloogDownload {
-    position: static;
-    display: inline-block;
-    margin: 0 0 32px 32px;
+  .kataloogName {
+    font-size: 1.75rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .kataloogFeatures li,
+  .specRow {
+    font-size: 1rem;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  .specRow {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .kataloogBottom {
+    justify-content: flex-start;
   }
 }
 
 /* Mobile */
 @media (max-width: 540px) {
   .kataloogTitle {
-    font-size: 2.5rem;
+    font-size: 1.75rem;
     margin-bottom: 28px;
+    text-align: left;
+    padding-left: 24px;
   }
   .kataloogImg {
     height: 260px;
   }
   .kataloogCard {
-    padding: 24px;
+    padding: 24px 40px 24px 24px;
+    width: 100% !important;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
   }
-  .kataloogCard {
-    padding: 24px;
+  .kataloogName {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+    font-size: 1.25rem !important;
+  }
+  .kataloogBottom {
+    flex-wrap: nowrap;
+    gap: 8px;
+    align-items: center;
+  }
+  .kataloogBottom .kataloogDownload {
+    flex-shrink: 1;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .kataloogCard .arrow {
+    width: 48px;
+    height: 34px;
+    font-size: 0.875rem;
+  }
+  .kataloogDownload {
+    padding: 8px 12px;
+    font-size: 0.625rem;
+    letter-spacing: 0;
+    transform: scale(0.85);
+  }
+  .kataloogStage {
+    overflow-x: hidden;
+  }
+  .kataloogFeatures {
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 24px;
+  }
+  .kataloogSpecs {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+  }
+  
+  .kataloogFeatures li {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  .specRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    font-size: 0.8125rem;
+  }
+  .specRow dd {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    width: 100%;
   }
 }
 
 .kataloogName {
-  font-size: 1.25rem;
+  font-size: 1.75rem;
   font-family: "Lexend Peta", sans-serif;
-  font-weight: 600;
+  font-weight: 200;
   letter-spacing: 0.15em;
-  margin: 0 0 16px;
+  margin: 0px 0 40px 0;
 }
 
 .kataloogSubtitle {
   font-size: 1rem;
-  font-weight: 300;
   letter-spacing: 0.1em;
   color: #333;
-  margin: 0 0 20px;
+  margin: 0 0 10px 20px;
+  text-transform: uppercase;
 }
 
 .kataloogFeatures {
   list-style: none;
   padding: 0;
-  margin: 0 0 32px;
+  margin: 0 0 10px 20px;
 }
 
 .kataloogFeatures li {
-  font-size: 0.8125rem;
+  font-size: 1rem;
   line-height: 1.65;
   color: #333;
   font-family: sans-serif;
 }
 
 .kataloogSpecs {
-  margin: 0 0 32px;
+  margin: 0 0 16px;
 }
 
 .specRow {
@@ -620,7 +729,9 @@ p {
   justify-content: space-between;
   padding: 10px 0;
   border-bottom: 1px solid #eee;
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
+  margin-left: 20px;
+
 }
 
 .specRow:first-child {
@@ -638,30 +749,36 @@ p {
   font-weight: 300;
 }
 
+.kataloogBottom {
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  gap:20px
+}
+
 .kataloogArrows {
   display: flex;
   gap: 10px;
 }
 
 .kataloogDownload {
-  position: absolute;
-  bottom: 28px;
-  left: 28px;
-  background: white;
-  border: 1.5px solid #555;
-  padding: 10px 20px;
+  background: #21221F;
+  border: none;
+  padding: 12px 24px;
   border-radius: 10px;
   font-family: "Lexend Peta", sans-serif;
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   font-weight: 300;
-  color: #21221F;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: white;
   text-decoration: none;
   white-space: nowrap;
-  transition: background 0.2s;
+  transition: opacity 0.2s;
 }
 
 .kataloogDownload:hover {
-  background: #f0f0f0;
+  opacity: 0.75;
 }
 
 .stats {
@@ -757,7 +874,7 @@ p {
 }
 
 .statsBody {
-  font-size: 0.9375rem;
+  font-size: 1rem;
   line-height: 1.75;
   color: #555;
   margin: 0;
@@ -860,7 +977,7 @@ p {
 
 
 .faq {
-  padding: 100px 350px;
+  padding: 200px 250px;
 }
 
 .faqInner {
@@ -874,11 +991,10 @@ p {
 }
 
 .faqLeft h2 {
-  font-size: 2.5rem;
+  font-size: 1.75rem;
   font-weight: 300;
   letter-spacing: 0.1em;
   line-height: 1.3;
-  text-transform: uppercase;
   margin: 0 0 32px;
 }
 
@@ -976,7 +1092,13 @@ p {
 
 @media (max-width: 540px) {
   .faq {
-    padding: 60px 24px;
+    padding: 130px 24px;
+  }
+  .faqLeft h2 {
+    font-size: 1.rem;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    line-height: 1.2;
   }
 }
 
@@ -989,7 +1111,7 @@ p {
 
 /* ── CONTACT ── */
 .contact {
-  padding: 120px 100px;
+  padding: 50px 100px 150px 100px;
 }
 
 .contactInner {
