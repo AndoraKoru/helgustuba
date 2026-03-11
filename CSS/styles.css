@@ -1,8 +1,12 @@
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 body {
   font-family: "Lexend Peta", sans-serif;
   font-size: 1rem;
   font-weight: 300;
-  overflow-x: hidden;
   margin: 0;
   padding: 0;
 }
@@ -132,7 +136,7 @@ p {
 }
 
 .mobileMenuLabel {
-  font-size: 1.75rem;
+  font-size: 1rem;
   font-weight: 300;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -147,7 +151,7 @@ p {
 @media (max-width: 1265px) {
 
   .navLogo {
-    font-size: 2.5rem;
+    font-size: 1.25rem;
   }
   .navLinks {
     display: none;
@@ -269,29 +273,36 @@ p {
 
 @media (max-width: 540px) {
   .hero {
-    border-radius: 0 0 120px 120px;
-    min-height: 100dvh;
+    border-radius: 0 0 80px 80px;
+    min-height: 80dvh;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.05) 0%,
+        rgba(10, 12, 18, 0.35) 100%
+      ),
+      url("/Assets/Images/Background/heroGif.gif");
+      background-position: center;
   }
   .heroContent {
-    padding: 0.5rem 1.25rem;
-    text-align: left;
-    align-items: flex-start;
+    text-align: center;
+    align-items: center;
     justify-content: flex-start;
-    padding-top: 8rem;
+    padding: 2rem 2rem 0;
   }
   .heroContent h1 {
-    margin-top: 0;
-    font-size: 1.5rem;
-    font-weight: 500;
-    letter-spacing: 0;
+    margin: 0;
+    font-size: 2.2rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
-    animation: slideInLeft 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    line-height: 1.15;
   }
   .heroContent p {
-    margin-top: 0.6rem;
-    font-size: 1.25rem;
-    font-weight: 100;
-    animation: slideInLeft 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+    margin-top: 0.2rem;
+    font-size: 1.1rem;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    opacity: 0.9;
   }
 }
 
@@ -311,6 +322,7 @@ p {
   .theWhatTop {
     padding: 0px 180px;
   }
+  .thewhat
 }
 
 @media (max-width: 900px) {
@@ -365,6 +377,7 @@ p {
   font-weight: 600;
   font-size: 0.9375rem;
   margin: 0 0 12px;
+  color: #8AA4B4;
 }
 
 .slideDesc {
@@ -407,6 +420,16 @@ p {
   .theWhat {
     padding: 48px 0 0;
   }
+  .featureImg {
+    border-radius: 0 !important;
+  }
+  .slideTitle {
+    font-family: "Lexend Peta", sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #21221F;
+    font-weight: 200;
+  }
 
   .theWhatTop {
     flex-direction: column;
@@ -415,9 +438,20 @@ p {
     padding: 0 24px 32px;
   }
 
+  .theWhatRight {
+    padding: 1em 2em 1em 0;
+    text-align: left;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .theWhatLeft h2 {
-    font-size: 1.625rem;
+    font-size: 1.25rem;
     margin-bottom: 0;
+    text-align: left;
+    width: 100%;
   }
 
   .theWhatArrows {
@@ -431,6 +465,7 @@ p {
   .theWhatDots {
     display: flex;
   }
+
 }
 
 .kataloog {
@@ -647,10 +682,11 @@ p {
 .statsRow {
   display: flex;
   gap: 12px;
+  padding-right: 0;
 }
 
-.statsCard {
-  background: transparent;
+.statCard {
+  background: rgba(255, 255, 255, 0.82);
   border-radius: 10px;
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
   padding: 32px 36px 40px;
@@ -659,39 +695,29 @@ p {
   transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease;
 }
 
-.statsRow .statsCard {
+.statsRow .statCard {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.statsCardTop {
+.statCardTop {
   display: flex;
   align-items: center;
   gap: 36px;
 }
 
-.statsCardDark {
-  background: transparent;
-}
-
-.statsCardDark,
-.statsCardDark .statsDesc {
-  color: #21221F;
-}
-
-
-.statsCard.visible {
+.statCard.visible {
   transform: scale(1) translateY(0);
   opacity: 1;
 }
 
-.statsGrid:has(.statsCard:hover) .statsCard.visible {
+.statsGrid:has(.statCard:hover) .statCard.visible {
   transform: scale(0.95) translateY(0);
 }
 
-.statsGrid:has(.statsCard:hover) .statsCard.visible:hover {
+.statsGrid:has(.statCard:hover) .statCard.visible:hover {
   transform: scale(1.04) translateY(-4px);
 }
 
@@ -700,7 +726,7 @@ p {
   font-size: 3.25rem;
   font-weight: 300;
   letter-spacing: 0.02em;
-  color: #8AA4B4;
+  color: #21221;
   flex-shrink: 0;
   line-height: 1;
 }
@@ -709,10 +735,11 @@ p {
   font-family: "Lexend Peta", sans-serif;
   font-size: 1rem;
   font-weight: 300;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: #21221F;
   margin: 0;
-  line-height: 1.45;
+  line-height: 1.3;
 }
 
 .statsText {
@@ -746,27 +773,82 @@ p {
     font-size: 2.5rem;
   }
   .statsHeading {
-    font-size: 1.625rem;
+    font-size: 1.25rem;
   }
 }
 
 @media (max-width: 800px) {
   .stats {
     flex-direction: column;
-    padding: 48px 32px;
+    padding: 80px 32px;
     gap: 40px;
+    background: none;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 80px 80px;
   }
   .statsGrid {
     flex: none;
     width: 100%;
+    box-sizing: border-box;
   }
+  .statsRow {
+    box-sizing: border-box;
+    width: 100%;
+  }
+  .statCard {
+    box-sizing: border-box;
+    min-width: 0;
+    border-radius: 0;
+    transform: translateY(40px);
+    opacity: 0;
+    transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.55s ease;
+  }
+  .statCard.visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  .statCard,
+  .statsText {
+    text-align: left;
+    align-items: flex-start;
+  }
+  .statCardTop {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+  }
+  .statCardTop .statsPct,
+  .statCardTop .statsDesc {
+    text-align: left;
+    width: 100%;
+  }
+  .statsHeading,
+  .statsBody,
+  .statsPct,
+  .statsDesc {
+    text-align: left;
+  }
+  .statsText {
+    padding: 80px 0 40px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+    .statsDesc {
+      font-size: 0.7rem;
+    }
 }
 
 @media (max-width: 480px) {
   .stats {
     padding: 40px 24px;
   }
-  .statsCardTop {
+  .statsRow {
+    flex-direction: column;
+  }
+  .statCardTop {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
@@ -903,4 +985,357 @@ p {
   object-fit: cover;
   border-radius: 12px;
   display: block;
+}
+
+/* ── CONTACT ── */
+.contact {
+  padding: 120px 100px;
+}
+
+.contactInner {
+  display: flex;
+  gap: 80px;
+  align-items: stretch;
+}
+
+.contactLeft {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contactHeading {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 200;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  margin: 0;
+  color: #21221F;
+}
+
+.contactLeftBottom {
+  display: flex;
+  gap: 60px;
+  padding-top: 80px;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contactInfoLabel {
+  font-family: sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #21221F;
+  margin: 0;
+}
+
+.contactSocials {
+  display: flex;
+  gap: 16px;
+}
+
+.contactSocials a,
+.contactInfoLink {
+  font-family: sans-serif;
+  font-size: 0.8125rem;
+  color: #555;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+
+.contactSocials a:hover,
+.contactInfoLink:hover {
+  color: #21221F;
+}
+
+.contactRight {
+  flex: 1.1;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.contactFormLabel {
+  font-family: sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #21221F;
+  margin: 0;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.contactRow {
+  display: flex;
+  gap: 40px;
+}
+
+.contactField {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contactFieldFull {
+  flex: none;
+}
+
+.contactLabel {
+  font-family: sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #888;
+}
+
+.contactInput {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 8px 0;
+  font-family: sans-serif;
+  font-size: 0.9375rem;
+  color: #21221F;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s;
+}
+
+.contactInput::placeholder {
+  color: #bbb;
+}
+
+.contactInput:focus {
+  border-bottom-color: #8AA4B4;
+}
+
+.contactTextarea {
+  resize: none;
+  height: 80px;
+  line-height: 1.6;
+}
+
+.contactSubmit {
+  align-self: flex-start;
+  background: transparent;
+  border: none;
+  font-family: "Lexend Peta", sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  color: #21221F;
+  cursor: pointer;
+  padding: 0;
+  border-bottom: 1px solid #21221F;
+  padding-bottom: 3px;
+  transition: opacity 0.2s;
+}
+
+.contactSubmit:hover {
+  opacity: 0.5;
+}
+
+@media (max-width: 1100px) {
+  .contact {
+    padding: 80px 60px;
+  }
+  .contactInner {
+    gap: 60px;
+  }
+}
+
+@media (max-width: 800px) {
+  .contact {
+    padding: 80px 40px;
+  }
+  .contactInner {
+    flex-direction: column;
+    gap: 60px;
+  }
+  .contactLeftBottom {
+    padding-top: 40px;
+  }
+}
+
+@media (max-width: 540px) {
+  .contact {
+    padding: 60px 24px;
+  }
+  .contactRow {
+    flex-direction: column;
+    gap: 28px;
+  }
+  .contactHeading {
+    font-size: 2.5rem;
+  }
+  .contactLeftBottom {
+    flex-direction: column;
+    gap: 28px;
+  }
+}
+
+/* ── FOOTER ── */
+.footer {
+  background: #8AA4B4;
+  border-radius: 80px 80px 0 0;
+  margin-top: 80px;
+  overflow: hidden;
+}
+
+.footerInner {
+  padding: 80px 100px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.footerTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footerLabel {
+  font-family: sans-serif;
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 16px;
+  text-transform: uppercase;
+}
+
+.footerEmail {
+  font-family: "Lexend Peta", sans-serif;
+  font-size: clamp(1.5rem, 3.5vw, 3rem);
+  font-weight: 200;
+  letter-spacing: 0.05em;
+  color: white;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.footerEmail:hover {
+  opacity: 0.7;
+}
+
+.footerDecor {
+  font-family: "Lexend Peta", sans-serif;
+  font-size: clamp(5rem, 14vw, 13rem);
+  font-weight: 100;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.15);
+  line-height: 0.85;
+  user-select: none;
+  align-self: flex-end;
+}
+
+.footerBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  padding-top: 40px;
+}
+
+.footerNav {
+  display: flex;
+  gap: 60px;
+}
+
+.footerNavCol {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footerNavCol a {
+  font-family: "Lexend Peta", sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footerNavCol a:hover {
+  color: white;
+}
+
+.footerRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.footerSocials {
+  display: flex;
+  gap: 16px;
+}
+
+.footerSocial {
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.2s;
+}
+
+.footerSocial:hover {
+  color: white;
+}
+
+.footerCopy {
+  font-family: sans-serif;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 900px) {
+  .footerInner {
+    padding: 60px 48px 40px;
+    gap: 60px;
+  }
+  .footerDecor {
+    display: none;
+  }
+  .footerBottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+  }
+  .footerRight {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 540px) {
+  .footer {
+    border-radius: 40px 40px 0 0;
+    margin-top: 48px;
+  }
+  .footerInner {
+    padding: 48px 28px 36px;
+    gap: 48px;
+  }
+  .footerNav {
+    gap: 32px;
+  }
 }

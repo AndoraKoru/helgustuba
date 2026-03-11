@@ -1,15 +1,18 @@
+const isMobile = () => window.innerWidth <= 800;
+
 const statsObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             const card = entry.target;
-            const delay = card.dataset.delay || 0;
-            setTimeout(() => card.classList.add('visible'), delay);
+            const delay = isMobile() ? card.dataset.delayMobile : card.dataset.delay;
+            setTimeout(() => card.classList.add('visible'), delay || 0);
             statsObserver.unobserve(card);
         }
     });
-}, { threshold: 0.2 });
+}, { threshold: 0.08 });
 
-document.querySelectorAll('.statsCard').forEach((card, i) => {
-    card.dataset.delay = i * 100;
+document.querySelectorAll('.statCard').forEach((card, i) => {
+    card.dataset.delay       = i * 100;
+    card.dataset.delayMobile = i * 120;
     statsObserver.observe(card);
 });
