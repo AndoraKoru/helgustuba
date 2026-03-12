@@ -2,11 +2,12 @@ const isMobile = () => window.innerWidth <= 800;
 
 const statsObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
+        const card = entry.target;
         if (entry.isIntersecting) {
-            const card = entry.target;
             const delay = isMobile() ? card.dataset.delayMobile : card.dataset.delay;
             setTimeout(() => card.classList.add('visible'), delay || 0);
-            statsObserver.unobserve(card);
+        } else {
+            card.classList.remove('visible');
         }
     });
 }, { threshold: 0.08 });

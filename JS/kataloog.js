@@ -79,3 +79,15 @@ document.querySelectorAll('.kataloogStage').forEach((stage, i) => {
 
     render();
 });
+
+const dropdown = document.getElementById('kataloogSelect');
+products.forEach((p, i) => {
+    const item = document.createElement('a');
+    item.textContent = p.name;
+    item.href = '#kataloogStage' + i;
+    item.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById('kataloogStage' + i).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    dropdown.appendChild(item);
+});
