@@ -213,11 +213,12 @@ p {
   border: 1px solid rgba(255, 255, 255, 0.6);
   padding: 8px 14px;
   border-radius: 12px;
-  transition: background-color 0.2s ease 0.1s, border-color 0.3s ease;
+  transition: background-color 0.2s ease, border-color 0.3s ease, color 0.2s ease;
 }
 
 .navCta:hover {
-  background-color: rgba(202, 228, 220, 0.393);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
 }
 
 .navLinks a:not(.navCta) {
