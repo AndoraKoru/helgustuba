@@ -1382,7 +1382,7 @@ p {
 .footer {
   background: url("/Assets/Images/Background/footerBackground.png") center/cover no-repeat;
   border-radius: 280px 280px 0 0;
-  margin-top: 80px;
+  margin-top: 0;
   overflow: hidden;
   position: relative;
 }
