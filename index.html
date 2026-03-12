@@ -17,67 +17,59 @@
 
 <body>
 
+    <!-- Navigation bar -->
+    <header class="nav">
+        <a href="#" class="navLogo">HELGUS</a>
+
+        <nav class="navLinks">
+            <a href="#omadused">Omadused</a>
+            <a href="#kasutus">Kasutus</a>
+            <a href="#kataloog">Kataloog</a>
+            <a href="#kkk">KKK</a>
+            <a href="#kontakt" class="navCta">Võtan ühendust!</a>
+        </nav>
+
+        <button class="hamburger" id="hamburger" aria-label="Menüü">
+            <span class="hamburgerBar"></span>
+            <span class="hamburgerBar"></span>
+            <span class="hamburgerBar"></span>
+        </button>
+
+        <div class="mobileMenu" id="mobileMenu">
+            <div class="mobileMenuHeader">
+                <div class="mobileMenuLogo">HELGUS</div>
+                <button class="mobileMenuClose" id="mobileMenuClose">Close</button>
+            </div>
+            <nav class="mobileMenuNav">
+                <a href="#omadused" class="mobileMenuItem">
+                    <span class="mobileMenuNum">01</span>
+                    <span class="mobileMenuLabel">Omadused</span>
+                </a>
+                <a href="#kasutus" class="mobileMenuItem">
+                    <span class="mobileMenuNum">02</span>
+                    <span class="mobileMenuLabel">Kasutus</span>
+                </a>
+                <a href="#kataloog" class="mobileMenuItem">
+                    <span class="mobileMenuNum">03</span>
+                    <span class="mobileMenuLabel">Kataloog</span>
+                </a>
+                <a href="#kkk" class="mobileMenuItem">
+                    <span class="mobileMenuNum">04</span>
+                    <span class="mobileMenuLabel">KKK</span>
+                </a>
+                <a href="#kontakt" class="mobileMenuItem">
+                    <span class="mobileMenuNum">05</span>
+                    <span class="mobileMenuLabel">Võtan ühendust!</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
     <!-- HERO -->
     <section class="hero" aria-label="Helgus hero">
-
-        <!-- Navigation bar -->
-        <header class="nav">
-            <div class="navLogo">HELGUS</div>
-
-            <nav class="navLinks">
-                <a href="#">Omadused</a>
-                <a href="#">Põhjused</a>
-                <a href="#">Paigaldus</a>
-                <a href="#">Kataloog</a>
-                <a href="#">KKK</a>
-                <a href="#" class="navCta">Võtan ühendust!</a>
-            </nav>
-
-            <button class="hamburger" id="hamburger" aria-label="Menüü">
-                <span class="hamburgerBar"></span>
-                <span class="hamburgerBar"></span>
-                <span class="hamburgerBar"></span>
-            </button>
-
-            <div class="mobileMenu" id="mobileMenu">
-                <div class="mobileMenuHeader">
-                    <div class="mobileMenuLogo">HELGUS</div>
-                    <button class="mobileMenuClose" id="mobileMenuClose">Close</button>
-                </div>
-                <nav class="mobileMenuNav">
-                    <a href="#" class="mobileMenuItem">
-                        <span class="mobileMenuNum">01</span>
-                        <span class="mobileMenuLabel">Omadused</span>
-                        
-                    </a>
-                    <a href="#" class="mobileMenuItem">
-                        <span class="mobileMenuNum">02</span>
-                        <span class="mobileMenuLabel">Põhjused</span>
-                        
-                    </a>
-                    <a href="#" class="mobileMenuItem">
-                        <span class="mobileMenuNum">03</span>
-                        <span class="mobileMenuLabel">Paigaldus</span>
-                        
-                    </a>
-                    <a href="#" class="mobileMenuItem">
-                        <span class="mobileMenuNum">04</span>
-                        <span class="mobileMenuLabel">Kataloog</span>
-                        
-                    </a>
-                    <a href="#" class="mobileMenuItem">
-                        <span class="mobileMenuNum">05</span>
-                        <span class="mobileMenuLabel">KKK</span>
-                        
-                    </a>
-                    <a href="#" class="mobileMenuItem">
-                        <span class="mobileMenuNum">06</span>
-                        <span class="mobileMenuLabel">Võtan ühendust!</span>
-                        
-                    </a>
-                </nav>
-            </div>
-        </header>
+        <video class="heroVideo" autoplay muted loop playsinline>
+            <source src="/Assets/Images/Background/heroVideoDestop.mp4" type="video/mp4">
+        </video>
 
         <div class="heroContent">
             <h1>avasta 21. sajandi mugavus</h1>
@@ -85,7 +77,7 @@
         </div>
 
     </section>
-    <section class="theWhat">
+    <section class="theWhat" id="omadused">
         <div class="theWhatTop">
             <div class="theWhatLeft">
                 <h2>MIKS VALIDA<br>HELGUS?</h2>
@@ -107,7 +99,7 @@
         <div class="theWhatDots" id="theWhatDots"></div>
     </section>
 
-    <section class="stats">
+    <section class="stats" id="kasutus">
         <div class="statsGrid">
             <div class="statCard statCardTop">
                 <span class="statsPct">75%</span>
@@ -131,7 +123,7 @@
     </section>
 
 
-    <section class="kataloog">
+    <section class="kataloog" id="kataloog">
         <h2 class="kataloogTitle">kataloog</h2>
 
         <div class="kataloogStage">
@@ -204,7 +196,7 @@
 
     </section>
 
-    <section class="faq">
+    <section class="faq" id="kkk">
         <div class="faqInner">
             <div class="faqLeft">
                 <h2>KODUMA KIPPUVAD KÜSIMUSED</h2>
@@ -225,7 +217,7 @@
                 <div class="faqItem">
                     <button class="faqQuestion" aria-expanded="false">
                         <span>Kui palju hooldust tualett vajab?</span>
-                        <span class="faqIcon">+</span>
+                        <span class="faqIcon"><img src="Assets/Images/Icons/more.png" alt="ava"></span>
                     </button>
                     <div class="faqAnswer">
                         <p>Tualett vajab regulaarset lihtsat hooldust nagu filtri puhastamine.</p>
@@ -234,7 +226,7 @@
                 <div class="faqItem">
                     <button class="faqQuestion" aria-expanded="false">
                         <span>Kui tihti tuleb filtrit hooldada?</span>
-                        <span class="faqIcon">+</span>
+                        <span class="faqIcon"><img src="Assets/Images/Icons/more.png" alt="ava"></span>
                     </button>
                     <div class="faqAnswer">
                         <p>Parima töö tagamiseks soovitame filtrit puhastada või vahetada umbes iga kuue kuu tagant, seda sõltuvalt vee kvaliteedist ja kasutusintensiivsusest. Filtreid saab meie käest tellida, tükihind 10€.</p>
@@ -243,7 +235,7 @@
                 <div class="faqItem">
                     <button class="faqQuestion" aria-expanded="false">
                         <span>Kuidas toimub garantiitugi?</span>
-                        <span class="faqIcon">+</span>
+                        <span class="faqIcon"><img src="Assets/Images/Icons/more.png" alt="ava"></span>
                     </button>
                     <div class="faqAnswer">
                         <p>Kui peaks tekkima tehniline küsimus või probleem, aitab meie tugi selle kiiresti lahendada. Tavaliselt on vaja toote seerianumbrit ning lühikest videot probleemist. Selle põhjal saab tehniline tugi olukorra kiiresti tuvastada ja vajadusel saata asendusosa.</p>
@@ -252,7 +244,7 @@
                 <div class="faqItem">
                     <button class="faqQuestion" aria-expanded="false">
                         <span>Kui pikk on garantii?</span>
-                        <span class="faqIcon">+</span>
+                        <span class="faqIcon"><img src="Assets/Images/Icons/more.png" alt="ava"></span>
                     </button>
                     <div class="faqAnswer">
                         <p>Tootel kehtib garantii elektroonilistele osadele 2 aastat ja keraamilistele osadele 5 aastat. Garantii katab tootmisest või materjalidest tulenevad vead.</p>
@@ -261,7 +253,7 @@
                 <div class="faqItem">
                     <button class="faqQuestion" aria-expanded="false">
                         <span>Kas Helgus paigaldab tooted ise?</span>
-                        <span class="faqIcon">+</span>
+                        <span class="faqIcon"><img src="Assets/Images/Icons/more.png" alt="ava"></span>
                     </button>
                     <div class="faqAnswer">
                         <p>Paigaldust pakume lisateenusena.</p>
@@ -271,39 +263,33 @@
         </div>
     </section>
 
-    <section class="contact">
+    <section class="contact" id="kontakt">
         <div class="contactInner">
             <div class="contactLeft">
                 <h2 class="contactHeading">VÕTA MEIEGA<br>ÜHENDUST</h2>
                 <p class="contactLeftText">Täida suhtlusväli siin paremal, kirjuta meile tere@helgustuba.ee või helista numbrile XXX</p>
             </div>
             <div class="contactRight">
-                <p class="contactFormLabel">Ütle tere</p>
                 <form class="contactForm" action="https://formspree.io/f/xbdzooke" method="POST">
                     <input type="hidden" name="_replyto" value="">
                     <div class="contactRow">
                         <div class="contactField">
-                            <label class="contactLabel">Nimi</label>
-                            <input class="contactInput" type="text" name="nimi" placeholder="Sinu nimi">
+<input class="contactInput" type="text" name="nimi" placeholder="Sinu nimi">
                         </div>
                         <div class="contactField">
-                            <label class="contactLabel">Teema</label>
-                            <input class="contactInput" type="text" name="teema" placeholder="Vali teema">
+<input class="contactInput" type="text" name="teema" placeholder="Pealkiri">
                         </div>
                     </div>
                     <div class="contactRow">
                         <div class="contactField">
-                            <label class="contactLabel">Ettevõte</label>
-                            <input class="contactInput" type="text" name="ettevõte" placeholder="Ettevõtte nimi">
+<input class="contactInput" type="text" name="ettevõte" placeholder="Ettevõtte nimi">
                         </div>
                         <div class="contactField">
-                            <label class="contactLabel">E-post</label>
-                            <input class="contactInput" type="email" name="email" placeholder="E-posti aadress">
+<input class="contactInput" type="email" name="email" placeholder="E-posti aadress">
                         </div>
                     </div>
                     <div class="contactField contactFieldFull">
-                        <label class="contactLabel">Sõnum</label>
-                        <textarea class="contactInput contactTextarea" name="sõnum" placeholder="Kirjuta siia..."></textarea>
+<textarea class="contactInput contactTextarea" name="sõnum" placeholder="Kirjuta siia..."></textarea>
                     </div>
                     <button class="contactSubmit" type="submit">Saada &rarr;</button>
                 </form>
@@ -357,6 +343,11 @@
     <script src="JS/functions.js"></script>
     <script src="JS/kataloog.js"></script>
     <script>
+        const nav = document.querySelector('.nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('nav--scrolled', window.scrollY > 0);
+        });
+
         document.getElementById('hamburger').addEventListener('click', () => {
             document.getElementById('mobileMenu').classList.toggle('open');
         });
@@ -371,12 +362,12 @@
                 const isOpen = item.classList.contains('open');
                 document.querySelectorAll('.faqItem').forEach(i => {
                     i.classList.remove('open');
-                    i.querySelector('.faqIcon').textContent = '+';
+                    i.querySelector('.faqIcon').innerHTML = '<img src="Assets/Images/Icons/more.png" alt="ava">';
                     i.querySelector('.faqQuestion').setAttribute('aria-expanded', 'false');
                 });
                 if (!isOpen) {
                     item.classList.add('open');
-                    btn.querySelector('.faqIcon').textContent = '−';
+                    btn.querySelector('.faqIcon').innerHTML = '−';
                     btn.setAttribute('aria-expanded', 'true');
                 }
             });
