@@ -112,8 +112,8 @@ function goTo(direction) {
     const mobile = strip.getBoundingClientRect().width < 600;
     const ease   = 'cubic-bezier(0.4, 0, 0.2, 1)';
     const mobileEase = 'cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-    const imgT   = mobile ? `left 0.18s ${mobileEase}, opacity 0.18s ${mobileEase}` : `left 0.4s ${ease}, top 0.4s ${ease}, width 0.4s ${ease}, height 0.4s ${ease}, opacity 0.4s ${ease}`;
-    const txtT   = mobile ? `transform 0.18s ${mobileEase}` : `transform 0.4s ${ease}`;
+    const imgT   = mobile ? `left 0.14s ${mobileEase}, opacity 0.14s ${mobileEase}` : `left 0.22s ${ease}, top 0.22s ${ease}, width 0.22s ${ease}, height 0.22s ${ease}, opacity 0.22s ${ease}`;
+    const txtT   = mobile ? `transform 0.14s ${mobileEase}` : `transform 0.22s ${ease}`;
 
     current = mod(current + (direction === 'next' ? 1 : -1), slides.length);
     updateText();
@@ -168,7 +168,7 @@ function goTo(direction) {
             imgEls = [buffer, imgEls[0], imgEls[1]];
         }
         isAnimating = false;
-    }, mobile ? 180 : 400);
+    }, mobile ? 140 : 220);
 }
 
 document.getElementById('prevBtn').addEventListener('click', () => goTo('prev'));

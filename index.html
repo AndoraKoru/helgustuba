@@ -38,35 +38,38 @@
             <span class="hamburgerBar"></span>
         </button>
 
-        <div class="mobileMenu" id="mobileMenu">
-            <div class="mobileMenuHeader">
-                <div class="mobileMenuLogo">HELGUS</div>
-                <button class="mobileMenuClose" id="mobileMenuClose">Close</button>
-            </div>
-            <nav class="mobileMenuNav">
-                <a href="#omadused" class="mobileMenuItem">
-                    <span class="mobileMenuNum">01</span>
-                    <span class="mobileMenuLabel">Omadused</span>
-                </a>
-                <a href="#kasutus" class="mobileMenuItem">
-                    <span class="mobileMenuNum">02</span>
-                    <span class="mobileMenuLabel">Kasutus</span>
-                </a>
-                <a href="#kataloog" class="mobileMenuItem">
-                    <span class="mobileMenuNum">03</span>
-                    <span class="mobileMenuLabel">Kataloog</span>
-                </a>
-                <a href="#kkk" class="mobileMenuItem">
-                    <span class="mobileMenuNum">04</span>
-                    <span class="mobileMenuLabel">KKK</span>
-                </a>
-                <a href="#kontakt" class="mobileMenuItem">
-                    <span class="mobileMenuNum">05</span>
-                    <span class="mobileMenuLabel">Võtan ühendust!</span>
-                </a>
-            </nav>
-        </div>
     </header>
+
+    <div class="mobileMenu" id="mobileMenu">
+        <nav class="mobileMenuNav">
+            <a href="#omadused" class="mobileMenuItem">
+                <span class="mobileMenuLabel">Omadused</span>
+                <span class="mobileMenuNum">01</span>
+            </a>
+            <a href="#kasutus" class="mobileMenuItem">
+                <span class="mobileMenuLabel">Kasutus</span>
+                <span class="mobileMenuNum">02</span>
+            </a>
+            <a href="#kataloog" class="mobileMenuItem">
+                <span class="mobileMenuLabel">Kataloog</span>
+                <span class="mobileMenuNum">03</span>
+            </a>
+            <div class="mobileMenuSub">
+                <a href="#kataloogStage0" class="mobileMenuSubItem">Kohina</a>
+                <a href="#kataloogStage1" class="mobileMenuSubItem">Valaste</a>
+                <a href="#kataloogStage2" class="mobileMenuSubItem">Ukuoru</a>
+                <a href="#kataloogStage3" class="mobileMenuSubItem">Jägala</a>
+            </div>
+            <a href="#kkk" class="mobileMenuItem">
+                <span class="mobileMenuLabel">KKK</span>
+                <span class="mobileMenuNum">04</span>
+            </a>
+            <a href="#kontakt" class="mobileMenuItem">
+                <span class="mobileMenuLabel">Võtan ühendust!</span>
+                <span class="mobileMenuNum">05</span>
+            </a>
+        </nav>
+    </div>
 
     <!-- HERO -->
     <section class="hero" aria-label="Helgus hero">
@@ -102,6 +105,15 @@
         <div class="theWhatDots" id="theWhatDots"></div>
     </section>
 
+    <section class="functionsVideo">
+        <h2>Vaata videot<br>funtksioonidest</h2>
+        <div class="functionsVideoWrap">
+            <video autoplay muted loop playsinline>
+                <source src="Assets/Images/Functions/functionsShortVideo.mov" type="video/mp4">
+            </video>
+        </div>
+    </section>
+
     <section class="stats" id="kasutus">
         <div class="statsGrid">
             <div class="statCard statCardTop">
@@ -130,7 +142,11 @@
         <h2 class="kataloogTitle">kataloog</h2>
 
         <div class="kataloogStage" id="kataloogStage0">
-            <img class="kataloogImg" src="" alt="">
+            <div class="kataloogImgWrap">
+                <img class="kataloogImg" src="" alt="">
+                <a class="kataloogMorePhotos" href="#" data-index="0">Vaata rohkem pilte</a>
+                <a class="kataloogMorePhotosMobile" href="#" data-index="0">+</a>
+            </div>
             <div class="kataloogCard">
                 <p class="kataloogName"></p>
                 <p class="kataloogSubtitle"></p>
@@ -147,7 +163,11 @@
         </div>
 
         <div class="kataloogStage" id="kataloogStage1">
-            <img class="kataloogImg" src="" alt="">
+            <div class="kataloogImgWrap">
+                <img class="kataloogImg" src="" alt="">
+                <a class="kataloogMorePhotos" href="#" data-index="1">Vaata rohkem pilte</a>
+                <a class="kataloogMorePhotosMobile" href="#" data-index="1">+</a>
+            </div>
             <div class="kataloogCard">
                 <p class="kataloogName"></p>
                 <p class="kataloogSubtitle"></p>
@@ -164,7 +184,11 @@
         </div>
 
         <div class="kataloogStage" id="kataloogStage2">
-            <img class="kataloogImg" src="" alt="">
+            <div class="kataloogImgWrap">
+                <img class="kataloogImg" src="" alt="">
+                <a class="kataloogMorePhotos" href="#" data-index="2">Vaata rohkem pilte</a>
+                <a class="kataloogMorePhotosMobile" href="#" data-index="2">+</a>
+            </div>
             <div class="kataloogCard">
                 <p class="kataloogName"></p>
                 <p class="kataloogSubtitle"></p>
@@ -181,7 +205,11 @@
         </div>
 
         <div class="kataloogStage" id="kataloogStage3">
-            <img class="kataloogImg" src="" alt="">
+            <div class="kataloogImgWrap">
+                <img class="kataloogImg" src="" alt="">
+                <a class="kataloogMorePhotos" href="#" data-index="3">Vaata rohkem pilte</a>
+                <a class="kataloogMorePhotosMobile" href="#" data-index="3">+</a>
+            </div>
             <div class="kataloogCard">
                 <p class="kataloogName"></p>
                 <p class="kataloogSubtitle"></p>
@@ -202,14 +230,14 @@
     <section class="faq" id="kkk">
         <div class="faqInner">
             <div class="faqLeft">
-                <h2>KODUMA KIPPUVAD KÜSIMUSED</h2>
-                <p>Helge tualett on uus kogemus — oleme siin, et aidata sul iga samm selgeks teha.</p>
+                <h2>MÕNED KÜSIMUSED KIPUVAD KORDUMA</h2>
+                <p>Siit leiad neile vastuse. Kui sul jääb aga mõtteisse mõlkuma rohkem küsimusi, kirjuta meile julgelt allpool.</p>
             </div>
             <div class="faqRight">
                 <div class="faqItem open">
                     <button class="faqQuestion" aria-expanded="true">
                         <span>Kas tualett sobib kasutamiseks Eesti vee tingimustes?</span>
-                        <span class="faqIcon">−</span>
+                        <span class="faqIcon"></span>
                     </button>
                     <div class="faqAnswer">
                         <p>Jah, sobivad! Tualetid on loodud töötama erinevate veeomadustega piirkondades, sealhulgas ka karedama veega.</p>
@@ -220,7 +248,7 @@
                 <div class="faqItem">
                     <button class="faqQuestion" aria-expanded="false">
                         <span>Kui palju hooldust tualett vajab?</span>
-                        <span class="faqIcon"><img src="Assets/Images/Icons/more.png" alt="ava"></span>
+                        <span class="faqIcon"></span>
                     </button>
                     <div class="faqAnswer">
                         <p>Tualett vajab regulaarset lihtsat hooldust nagu filtri puhastamine.</p>
@@ -229,7 +257,7 @@
                 <div class="faqItem">
                     <button class="faqQuestion" aria-expanded="false">
                         <span>Kui tihti tuleb filtrit hooldada?</span>
-                        <span class="faqIcon"><img src="Assets/Images/Icons/more.png" alt="ava"></span>
+                        <span class="faqIcon"></span>
                     </button>
                     <div class="faqAnswer">
                         <p>Parima töö tagamiseks soovitame filtrit puhastada või vahetada umbes iga kuue kuu tagant, seda sõltuvalt vee kvaliteedist ja kasutusintensiivsusest. Filtreid saab meie käest tellida, tükihind 10€.</p>
@@ -238,7 +266,7 @@
                 <div class="faqItem">
                     <button class="faqQuestion" aria-expanded="false">
                         <span>Kuidas toimub garantiitugi?</span>
-                        <span class="faqIcon"><img src="Assets/Images/Icons/more.png" alt="ava"></span>
+                        <span class="faqIcon"></span>
                     </button>
                     <div class="faqAnswer">
                         <p>Kui peaks tekkima tehniline küsimus või probleem, aitab meie tugi selle kiiresti lahendada. Tavaliselt on vaja toote seerianumbrit ning lühikest videot probleemist. Selle põhjal saab tehniline tugi olukorra kiiresti tuvastada ja vajadusel saata asendusosa.</p>
@@ -247,7 +275,7 @@
                 <div class="faqItem">
                     <button class="faqQuestion" aria-expanded="false">
                         <span>Kui pikk on garantii?</span>
-                        <span class="faqIcon"><img src="Assets/Images/Icons/more.png" alt="ava"></span>
+                        <span class="faqIcon"></span>
                     </button>
                     <div class="faqAnswer">
                         <p>Tootel kehtib garantii elektroonilistele osadele 2 aastat ja keraamilistele osadele 5 aastat. Garantii katab tootmisest või materjalidest tulenevad vead.</p>
@@ -256,7 +284,7 @@
                 <div class="faqItem">
                     <button class="faqQuestion" aria-expanded="false">
                         <span>Kas Helgus paigaldab tooted ise?</span>
-                        <span class="faqIcon"><img src="Assets/Images/Icons/more.png" alt="ava"></span>
+                        <span class="faqIcon"></span>
                     </button>
                     <div class="faqAnswer">
                         <p>Paigaldust pakume lisateenusena.</p>
@@ -344,12 +372,41 @@
             nav.classList.toggle('nav--scrolled', window.scrollY > 0);
         });
 
-        document.getElementById('hamburger').addEventListener('click', () => {
-            document.getElementById('mobileMenu').classList.toggle('open');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const hamburger = document.getElementById('hamburger');
+
+        function closeMenu() {
+            mobileMenu.classList.remove('open');
+            mobileMenu.classList.add('closing');
+            hamburger.classList.remove('open');
+            setTimeout(() => mobileMenu.classList.remove('closing'), 400);
+        }
+
+        function positionMenu() {
+            const navBottom = nav.getBoundingClientRect().bottom;
+            mobileMenu.style.top = (navBottom + 8) + 'px';
+        }
+
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = mobileMenu.classList.contains('open');
+            if (isOpen) {
+                closeMenu();
+            } else {
+                positionMenu();
+                mobileMenu.classList.add('open');
+                hamburger.classList.add('open');
+            }
         });
 
-        document.getElementById('mobileMenuClose').addEventListener('click', () => {
-            document.getElementById('mobileMenu').classList.remove('open');
+        document.addEventListener('click', (e) => {
+            if (mobileMenu.classList.contains('open') && !mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                closeMenu();
+            }
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMenu);
         });
 
         document.querySelectorAll('.faqQuestion').forEach(btn => {
@@ -358,12 +415,10 @@
                 const isOpen = item.classList.contains('open');
                 document.querySelectorAll('.faqItem').forEach(i => {
                     i.classList.remove('open');
-                    i.querySelector('.faqIcon').innerHTML = '<img src="Assets/Images/Icons/more.png" alt="ava">';
                     i.querySelector('.faqQuestion').setAttribute('aria-expanded', 'false');
                 });
                 if (!isOpen) {
                     item.classList.add('open');
-                    btn.querySelector('.faqIcon').innerHTML = '−';
                     btn.setAttribute('aria-expanded', 'true');
                 }
             });
@@ -418,6 +473,68 @@
 
         document.querySelectorAll('.kataloogImg').forEach(img => {
             kataloogImgObserver.observe(img);
+        });
+    </script>
+
+    <!-- Gallery Modal -->
+    <div class="galleryModal" id="galleryModal">
+        <div class="galleryHeader">
+            <span class="galleryTitle" id="galleryTitle"></span>
+            <button class="galleryClose" id="galleryClose">Close</button>
+        </div>
+        <div class="galleryGrid" id="galleryGrid"></div>
+    </div>
+
+    <script>
+        const galleryImages = [
+            [
+                'Assets/Images/Catalogue/kohinaCataloguePicture.jpg',
+                'Assets/Images/Catalogue/kohinaCataloguePicture2.jpg'
+            ],
+            [
+                'Assets/Images/Catalogue/valasteCataloguePicture.jpg',
+                'Assets/Images/Catalogue/valasteCataloguePicture2.jpg'
+            ],
+            [
+                'Assets/Images/Catalogue/ukuoruCataloguePicture.jpg',
+                'Assets/Images/Catalogue/ukuoruCataloguePicture2.jpg'
+            ],
+            [
+                'Assets/Images/Catalogue/jägalaCataloguePicture.jpg',
+                'Assets/Images/Catalogue/jägalaCataloguePicture2.jpg'
+            ]
+        ];
+
+        const galleryModal = document.getElementById('galleryModal');
+        const galleryGrid  = document.getElementById('galleryGrid');
+        const galleryTitle = document.getElementById('galleryTitle');
+
+        function openGallery(index) {
+            const p = products[index];
+            galleryTitle.textContent = p.name;
+            galleryGrid.innerHTML = galleryImages[index].map(src =>
+                `<div class="galleryItem"><img src="${src}" alt="${p.name}"></div>`
+            ).join('');
+            galleryModal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGallery() {
+            galleryModal.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('galleryClose').addEventListener('click', closeGallery);
+
+        document.querySelectorAll('.kataloogMorePhotos, .kataloogMorePhotosMobile').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openGallery(parseInt(btn.dataset.index));
+            });
+        });
+
+        galleryModal.addEventListener('click', (e) => {
+            if (e.target === galleryModal) closeGallery();
         });
     </script>
 
