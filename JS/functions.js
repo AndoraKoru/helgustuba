@@ -1,22 +1,22 @@
 const slides = [
     {
         title: "Jaapani vannitoakultuurist inspireeritud Eesti bränd",
-        desc: "Iga helguse tualett on saanud oma nime kodumaiste joastike järgi: Jägala, Ukuoru, Kohina ja Valaste. Toodete tehnoloogiline pool on koostatud arvestades Eesti nüansside ja nõuetega. ",
-        img: "Assets/Images/Functions/soojendatudIste.jpg"
+        desc: "Iga helguse tualett on saanud oma nime kodumaiste joastike järgi: Jägala, Ukuoru, Kohina ja Valaste. Toodete tehnoloogiline pool on koostatud arvestades Eesti nüansside – nagu karedam vesi – ja nõuetega. ",
+        img: "Assets/Images/Functions/eestiBränd.jpg"
     },
     {
         title: "Kareda vee filter",
-        desc: "Varem on tarkade tualettide head toimimist takistanud kare vesi. Helguse tualettide integreeritud filter pehendab vett, kaitstes seadet kaltsifikatsiooni eest ja pikendades selle eluiga. See on meie jaoks üks olulisemaid detaile.",
-        img: "Assets/Images/Functions/iseAvanevWCKaas.jpg"
+        desc: "Varem on Eestis tarkade tualettide parimat toimimist takistanud kare vesi. Helguse tualettide integreeritud filter pehendab vett, kaitstes seadet kaltsifikatsiooni eest ja pikendades selle eluiga. See on meie jaoks üks olulisemaid detaile.",
+        img: "Assets/Images/Functions/karedaVeeFilter.jpg"
     },
     {
         title: "Reguleeritava temperatuuriga prillaud",
-        desc: "Soojus lisab igapäevasesse kasutusse selgelt tajutavat mugavust – eriti jahedatel hommikutel või külmemas vannitoas. Kui juba ära harjud, siis tagasiteed enam ei ole. Muidugi võib prilllaua jätta ka külmaks,",
-        img: "Assets/Images/Functions/võimasKuivatus.jpg"
+        desc: "Soojus lisab igapäevasesse kasutusse selgelt tajutavat mugavust – eriti jahedatel hommikutel või külmemas vannitoas. Kui juba ära harjud, siis tagasiteed enam ei ole. Muidugi võib prilllaua jätta ka jahedaks.",
+        img: "Assets/Images/Functions/soojendatudIste.jpg"
     },
     {
         title: "Steriilne UV puhastus",
-        desc: "UV-valgus steriliseerib poti pinna automaatselt pärast iga kasutust, tagades pideva puhtuse.",
+        desc: "UV-valgus steriliseerib poti pinna automaatselt pärast igat kasutust. See bakterite vähendamine tagab päriselt puhta ja hügieenilise kogemuse.",
         img: "Assets/Images/Functions/steriilneUvPuhastus.jpg"
     },
     {
@@ -25,16 +25,21 @@ const slides = [
         img: "Assets/Images/Functions/sisseEhitatudVeepaak.jpg"
     },
     {
-        title: "Karede vee filter",
-        desc: "Integreeritud filter pehendab vett, kaitstes seadet kaltsifikatsiooni eest ja pikendades selle eluiga.",
-        img: "Assets/Images/Functions/karedaVeeFilter.jpg"
-    }
+        title: "Ise avanev ja sulguv tualetikaas",
+        desc: "Ise avanev ja sulguv tualetikaas kõrgendab tajutud modernsuse tunnet.",
+        img: "Assets/Images/Functions/iseAvanevWCKaas.jpg"
+    },
+    {
+        title: "Õrn kuivatussüsteem",
+        desc: "Peale pesu on järgmine samm kuivatus õrna ning pehme õhuvooluga.",
+        img: "Assets/Images/Functions/kuivatus.jpg"
+    },
 ];
 
 let current = 0;
 let isAnimating = false;
 
-const strip  = document.querySelector('.theWhatImages');
+const strip = document.querySelector('.theWhatImages');
 const textEl = document.querySelector('.theWhatRight');
 
 // Rotating array — [0]=prev, [1]=active, [2]=next
@@ -47,34 +52,34 @@ let imgEls = [
 function mod(n, m) { return ((n % m) + m) % m; }
 
 function getLayout() {
-    const W        = strip.getBoundingClientRect().width;
-    const mobile   = W < 600;
-    const gap      = mobile ? 10 : 28;
+    const W = strip.getBoundingClientRect().width;
+    const mobile = W < 600;
+    const gap = mobile ? 10 : 28;
     const containerH = strip.getBoundingClientRect().height;
     const activeW = mobile ? Math.round(W * 0.72) : 490;
     const activeH = mobile ? Math.round(containerH * 0.85) : 313;
-    const sideW   = mobile ? Math.round(W * 0.55) : 399;
-    const sideH   = mobile ? Math.round(containerH * 0.7) : 244;
+    const sideW = mobile ? Math.round(W * 0.55) : 399;
+    const sideH = mobile ? Math.round(containerH * 0.7) : 244;
     const activeTop = (containerH - activeH) / 2;
-    const sideTop   = (containerH - sideH) / 2;
+    const sideTop = (containerH - sideH) / 2;
     const activeX = (W - activeW) / 2;
-    const prevX   = activeX - sideW - gap;
+    const prevX = activeX - sideW - gap;
     // shiftX so next image is exactly 2/3 visible (1/3 off right edge)
-    const shiftX  = mobile ? 0 : (W - activeW) / 2 - sideW * (2 / 3) - gap;
+    const shiftX = mobile ? 0 : (W - activeW) / 2 - sideW * (2 / 3) - gap;
     return {
-        prev:   { left: prevX                      + shiftX, top: sideTop,   width: sideW,   height: sideH,   opacity: 0.65 },
-        active: { left: activeX                    + shiftX, top: activeTop, width: activeW, height: activeH, opacity: 1    },
-        next:   { left: activeX + activeW + gap    + shiftX, top: sideTop,   width: sideW,   height: sideH,   opacity: 0.65 },
-        exitL:  { left: -(sideW + gap),                      top: sideTop,   width: sideW,   height: sideH,   opacity: 0.65 },
-        exitR:  { left: W + gap,                             top: sideTop,   width: sideW,   height: sideH,   opacity: 0.65 }
+        prev: { left: prevX + shiftX, top: sideTop, width: sideW, height: sideH, opacity: 0.65 },
+        active: { left: activeX + shiftX, top: activeTop, width: activeW, height: activeH, opacity: 1 },
+        next: { left: activeX + activeW + gap + shiftX, top: sideTop, width: sideW, height: sideH, opacity: 0.65 },
+        exitL: { left: -(sideW + gap), top: sideTop, width: sideW, height: sideH, opacity: 0.65 },
+        exitR: { left: W + gap, top: sideTop, width: sideW, height: sideH, opacity: 0.65 }
     };
 }
 
 function setPos(el, pos) {
-    el.style.left    = pos.left    + 'px';
-    el.style.top     = pos.top     + 'px';
-    el.style.width   = pos.width   + 'px';
-    el.style.height  = pos.height  + 'px';
+    el.style.left = pos.left + 'px';
+    el.style.top = pos.top + 'px';
+    el.style.width = pos.width + 'px';
+    el.style.height = pos.height + 'px';
     el.style.opacity = pos.opacity;
 }
 
@@ -88,7 +93,7 @@ function positionImages() {
 
 function updateText() {
     document.getElementById('slideTitle').textContent = slides[current].title;
-    document.getElementById('slideDesc').textContent  = slides[current].desc;
+    document.getElementById('slideDesc').textContent = slides[current].desc;
     renderDots();
 }
 
@@ -108,19 +113,19 @@ function goTo(direction) {
     if (isAnimating) return;
     isAnimating = true;
 
-    const L      = getLayout();
+    const L = getLayout();
     const mobile = strip.getBoundingClientRect().width < 600;
-    const ease   = 'cubic-bezier(0.4, 0, 0.2, 1)';
+    const ease = 'cubic-bezier(0.4, 0, 0.2, 1)';
     const mobileEase = 'cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-    const imgT   = mobile ? `left 0.14s ${mobileEase}, opacity 0.14s ${mobileEase}` : `left 0.22s ${ease}, top 0.22s ${ease}, width 0.22s ${ease}, height 0.22s ${ease}, opacity 0.22s ${ease}`;
-    const txtT   = mobile ? `transform 0.14s ${mobileEase}` : `transform 0.22s ${ease}`;
+    const imgT = mobile ? `left 0.14s ${mobileEase}, opacity 0.14s ${mobileEase}` : `left 0.22s ${ease}, top 0.22s ${ease}, width 0.22s ${ease}, height 0.22s ${ease}, opacity 0.22s ${ease}`;
+    const txtT = mobile ? `transform 0.14s ${mobileEase}` : `transform 0.22s ${ease}`;
 
     current = mod(current + (direction === 'next' ? 1 : -1), slides.length);
     updateText();
 
     // Snap text to start offset (no transition)
     textEl.style.transition = 'none';
-    textEl.style.transform  = `translateX(${direction === 'next' ? 40 : -40}px)`;
+    textEl.style.transform = `translateX(${direction === 'next' ? 40 : -40}px)`;
 
     // Create a temporary incoming image, placed off-screen on the entry side
     const buffer = document.createElement('img');
@@ -147,17 +152,17 @@ function goTo(direction) {
         setPos(imgEls[0], L.exitL);  // prev   → exit left
         setPos(imgEls[1], L.prev);   // active → prev
         setPos(imgEls[2], L.active); // next   → active
-        setPos(buffer,    L.next);   // buffer → next (slides in from right)
+        setPos(buffer, L.next);   // buffer → next (slides in from right)
     } else {
         setPos(imgEls[2], L.exitR);  // next   → exit right
         setPos(imgEls[1], L.next);   // active → next
         setPos(imgEls[0], L.active); // prev   → active
-        setPos(buffer,    L.prev);   // buffer → prev (slides in from left)
+        setPos(buffer, L.prev);   // buffer → prev (slides in from left)
     }
 
     // Slide text in
     textEl.style.transition = txtT;
-    textEl.style.transform  = 'translateX(0)';
+    textEl.style.transform = 'translateX(0)';
 
     setTimeout(() => {
         if (direction === 'next') {
