@@ -7,6 +7,7 @@
     <title>Helgus</title>
 
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="preload" href="Assets/Images/Background/heroVideoDestop.mp4" as="video" type="video/mp4">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -109,9 +110,9 @@
             </div>
         </div>
         <div class="theWhatImages">
-            <img id="imgPrev" class="featureImg" src="" alt="">
+            <img id="imgPrev" class="featureImg" src="" alt="" loading="lazy">
             <img id="imgActive" class="featureImg" src="" alt="">
-            <img id="imgNext" class="featureImg" src="" alt="">
+            <img id="imgNext" class="featureImg" src="" alt="" loading="lazy">
         </div>
         <div class="theWhatDots" id="theWhatDots"></div>
     </section>
@@ -152,7 +153,7 @@
 
         <div class="kataloogStage" id="kataloogStage0">
             <div class="kataloogImgWrap">
-                <img class="kataloogImg" src="" alt="">
+                <img class="kataloogImg" src="" alt="" loading="lazy">
                 <div class="kataloogBubbles">
                     <span class="kataloogBubble kataloogBubble--warm">Seinapealne</span>
                     <span class="kataloogBubble kataloogBubble--cool">Õhuline disain</span>
@@ -177,7 +178,7 @@
 
         <div class="kataloogStage" id="kataloogStage1">
             <div class="kataloogImgWrap">
-                <img class="kataloogImg" src="" alt="">
+                <img class="kataloogImg" src="" alt="" loading="lazy">
                 <div class="kataloogBubbles">
                     <span class="kataloogBubble kataloogBubble--warm">Seinapealne</span>
                     <span class="kataloogBubble kataloogBubble--cool">Isikupärane</span>
@@ -202,7 +203,7 @@
 
         <div class="kataloogStage" id="kataloogStage2">
             <div class="kataloogImgWrap">
-                <img class="kataloogImg" src="" alt="">
+                <img class="kataloogImg" src="" alt="" loading="lazy">
                 <div class="kataloogBubbles">
                     <span class="kataloogBubble kataloogBubble--warm">Põrandapealne</span>
                     <span class="kataloogBubble kataloogBubble--cool">Voolujooneline</span>
@@ -227,7 +228,7 @@
 
         <div class="kataloogStage" id="kataloogStage3">
             <div class="kataloogImgWrap">
-                <img class="kataloogImg" src="" alt="">
+                <img class="kataloogImg" src="" alt="" loading="lazy">
                 <div class="kataloogBubbles">
                     <span class="kataloogBubble kataloogBubble--warm">Põrandapealne</span>
                     <span class="kataloogBubble kataloogBubble--cool">Nurgeline vorm</span>
@@ -575,7 +576,7 @@
             const p = products[index];
             galleryTitle.textContent = p.name;
             galleryGrid.innerHTML = galleryImages[index].map(src =>
-                `<div class="galleryItem"><img src="${src}" alt="${p.name}"></div>`
+                `<div class="galleryItem"><img src="${src}" alt="${p.name}" loading="lazy"></div>`
             ).join('');
             galleryModal.classList.add('open');
             document.body.style.overflow = 'hidden';

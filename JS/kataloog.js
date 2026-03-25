@@ -69,6 +69,12 @@ document.querySelectorAll('.kataloogStage').forEach((stage, i) => {
         }
     }
 
+    // Preload both images so switching is instant
+    [product.img, product.imgSpecs].forEach(src => {
+        const pre = new Image();
+        pre.src = src;
+    });
+
     stage.querySelector('.kataloogPrev').addEventListener('click', () => {
         view = view === 1 ? 0 : 1;
         render();
