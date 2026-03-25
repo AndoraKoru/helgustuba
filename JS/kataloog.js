@@ -1,35 +1,35 @@
 const products = [
     {
         name: "KOHINA",
-        img:      "Assets/Images/Catalogue/kohinaCataloguePicture.jpg",
-        imgSpecs: "Assets/Images/Catalogue/kohinaCataloguePicture2.jpg",
-        pdf: "#",
-        description: "Kohina on vaikse kohalolu ilu. Nagu lühike juga, mis ei mõju oma suuruse, vaid oma iseloomu ja kerge heli kaudu, toob ka see mudel vannituppa õhulisust ja elegantsust.",
-        specs: "Mõõdud: 660x415x465mm. Kaal: 46.5kg. Pinge/Sagedus: 220V / 50Hz. Garantii: 2 + 5 aastat. Loputusvee kogus: 2,7 l / 4,2 l. Loputuskast: sisse ehitatud. Väljavool: tahavooluga 180 mm (Allavooluga variant on tellitav 300-400 mm). Sertifikaat: CE."
+        img:      "Assets/Images/Catalogue/Kohina/kohina 1.webp",
+        imgSpecs: "Assets/Images/Catalogue/Kohina/kohina 3.webp",
+        pdf: "Assets/Images/tooteLehed/KOHINA.pdf",
+        description: "Kohina on vaikse kohalolu ilu. Nagu lühike juga, mis ei mõju oma suuruse, vaid oma iseloomu ja kerge heli kaudu, toob ka see mudel vannituppa õhulisust ja elegantsust. Kohinat on võimalik tellida valge, kuldse või hõbedase plaadiga.",
+        specs: "Mõõdud: 600×370×360 mm. Iste kõrgus: 440 mm. Neto kaal: 34,5 kg. Vool: 220V / 50Hz. Loputusveepaak: 4,8 L. Loputusvee kogus: 2,7 L / 4,2 L. Loputuskast: sisseehitatud. Äravool: tahavooluga 180 mm (allavooluga variant tellitav 300–400 mm). Sertifikaat: CE, EN1717, RoHS. Veesurve: 0,1 MPa – 0,75 MPa. Kaabli pikkus: 1,5 m."
     },
     {
         name: "VALASTE",
-        img:      "Assets/Images/Catalogue/valasteCataloguePicture.jpg",
-        imgSpecs: "Assets/Images/Catalogue/valasteCataloguePicture2.jpg",
-        pdf: "#",
-        description: "Valaste on väljapaistva vormiga nutitualett, mille inspiratsioon pärineb Baltimaade kõrgeima tehisliku joa geoloogilisest ilust. Muudetavad värvikihtide lahendused ülaplaadil ja külgedel loovad disaini, mis meenutab paekalda kihistusi ja toob vannituppa sügavuse ning isikupära.",
-        specs: "Mõõdud: 660x415x465mm. Kaal: 46.5kg. Pinge/Sagedus: 220V / 50Hz. Garantii: 2 + 5 aastat. Loputusvee kogus: 2,7 l / 4,2 l. Loputuskast: sisse ehitatud. Väljavool: tahavooluga 180 mm (Allavooluga variant on tellitav 300-400 mm). Sertifikaat: CE."
+        img:      "Assets/Images/Catalogue/Valaste/aaa Valaste Hall külg.webp",
+        imgSpecs: "Assets/Images/Catalogue/Valaste/aaa Valaste hall pealt.webp",
+        pdf: "Assets/Images/tooteLehed/VALASTE.pdf",
+        description: "Valaste on väljapaistva vormiga nutitualett, mille inspiratsioon pärineb Baltimaade kõrgeima tehisliku joa geoloogilisest ilust. Muudetavad värvikihtide lahendused ülaplaadil ja külgedel loovad disaini, mis meenutab paekalda kihistusi ja toob vannituppa sügavuse ning isikupära. Valastet on võimalik tellida üleni valgena, aga ka kuldse ja/või hõbedase plaadi ja/või äärega.",
+        specs: "Mõõdud: 605×380×355 mm. Iste kõrgus: 440 mm. Neto kaal: 34,5 kg. Vool: 220V / 50Hz. Loputusveepaak: 4,8 L. Loputusvee kogus: 2,7 L / 4,2 L. Loputuskast: sisseehitatud. Äravool: tahavooluga 180 mm (allavooluga variant tellitav 300–400 mm). Sertifikaat: CE, EN1717, RoHS. Veesurve: 0,1 MPa – 0,75 MPa. Kaabli pikkus: 1,5 m."
     },
     {
         name: "UKUORU",
-        img:      "Assets/Images/Catalogue/ukuoruCataloguePicture.jpg",
-        imgSpecs: "Assets/Images/Catalogue/ukuoruCataloguePicture2.jpg",
-        pdf: "#",
-        description: "Ukuoru on lihtsa ja voolujoonelise disainiga nutitualett, mille vorm mõjub pehmelt, puhtalt ja loomulikult. Inspireerituna Ukuoru joastiku sujuvast liikumisest, toob see mudel vannituppa tasakaalu, kergust ja vaikset elegantsi.",
-        specs: "Mõõdud: 660x415x465mm. Kaal: 46.5kg. Pinge/Sagedus: 220V / 50Hz. Garantii: 2 + 5 aastat. Loputusvee kogus: 2,7 l / 4,2 l. Loputuskast: sisse ehitatud. Väljavool: tahavooluga 180 mm (Allavooluga variant on tellitav 300-400 mm). Sertifikaat: CE."
+        img:      "Assets/Images/Catalogue/Ukuoru/Ukuoru 1.webp",
+        imgSpecs: "Assets/Images/Catalogue/Ukuoru/Ukuoru 2.webp",
+        pdf: "Assets/Images/tooteLehed/UKUORU.pdf",
+        description: "Ukuoru on lihtsa ja voolujoonelise disainiga nutitualett, mille vorm mõjub pehmelt, puhtalt ja loomulikult. Inspireerituna Ukuoru joastiku sujuvast liikumisest, toob see mudel vannituppa tasakaalu, kergust ja vaikset elegantsi. Ukuorut on võimalik tellida valge või matt-mustana.",
+        specs: "Mõõdud: 710×410×450 mm. Neto kaal: 45 kg. Vool: 220V / 50Hz. Loputusveepaak: 4,8 L. Loputusvee kogus: 2,7 L / 4,2 L. Loputuskast: sisseehitatud. Äravool: tahavooluga 180 mm (allavooluga variant tellitav 300–400 mm). Sertifikaat: CE, EN1717, RoHS. Veesurve: 0,1 MPa – 0,75 MPa. Kaabli pikkus: 1,5 m."
     },
     {
         name: "JÄGALA",
-        img:      "Assets/Images/Catalogue/jägalaCataloguePicture.jpg",
-        imgSpecs: "Assets/Images/Catalogue/jägalaCataloguePicture2.jpg",
-        pdf: "#",
-        description: "Jägala juga on Eesti loodusjõu üks selgemaid sümboleid – lai, võimas ja iseloomult põhjamaine. Sama mõte kandub ka selle mudeli disaini: nurgeline vorm meenutab paekallast, tugev siluett loob ruumis kohalolu ning puhas joonekasutus mõjub sama selgelt nagu langev veekardin.",
-        specs: "Mõõdud: 660x415x465mm. Kaal: 46.5kg. Pinge/Sagedus: 220V / 50Hz. Garantii: 2 + 5 aastat. Loputusvee kogus: 2,7 l / 4,2 l. Loputuskast: sisse ehitatud. Väljavool: tahavooluga 180 mm (Allavooluga variant on tellitav 300-400 mm). Sertifikaat: CE."
+        img:      "Assets/Images/Catalogue/Jägala/Jägala 2.webp",
+        imgSpecs: "Assets/Images/Catalogue/Jägala/Jägala 3.webp",
+        pdf: "Assets/Images/tooteLehed/JÄGALA.pdf",
+        description: "Jägala juga on Eesti loodusjõu üks selgemaid sümboleid – lai, võimas ja iseloomult põhjamaine. Sama mõte kandub ka selle mudeli disaini: nurgeline vorm meenutab paekallast, tugev siluett loob ruumis kohalolu ning puhas joonekasutus mõjub sama selgelt nagu langev veekardin. Jägalat on võimalik tellida valge või mustana.",
+        specs: "Mõõdud: 660×415×465 mm. Neto kaal: 46,5 kg. Vool: 220V / 50Hz. Loputusveepaak: 4,8 L. Loputusvee kogus: 2,7 L / 4,2 L. Loputuskast: sisseehitatud. Äravool: tahavooluga 180 mm (allavooluga variant tellitav 300–400 mm). Sertifikaat: CE, EN1717, RoHS. Veesurve: 0,1 MPa – 0,75 MPa. Kaabli pikkus: 1,5 m."
     }
 ];
 
@@ -47,6 +47,8 @@ document.querySelectorAll('.kataloogStage').forEach((stage, i) => {
     function render() {
         name.textContent  = product.name;
         download.href     = product.pdf;
+        download.target   = '_blank';
+        download.rel      = 'noopener noreferrer';
 
         img.classList.remove('sliding');
         img.getBoundingClientRect();

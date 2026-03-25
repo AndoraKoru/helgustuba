@@ -17,3 +17,19 @@ document.querySelectorAll('.statCard').forEach((card, i) => {
     card.dataset.delayMobile = i * 120;
     statsObserver.observe(card);
 });
+
+const brandObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        } else {
+            entry.target.classList.remove('visible');
+        }
+    });
+}, { threshold: 0.2 });
+
+const brandSection = document.querySelector('.brandStatement');
+if (brandSection) brandObserver.observe(brandSection);
+
+const theWhatSection = document.querySelector('.theWhat');
+if (theWhatSection) brandObserver.observe(theWhatSection);

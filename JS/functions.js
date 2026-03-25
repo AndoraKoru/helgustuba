@@ -1,10 +1,5 @@
 const slides = [
     {
-        title: "Jaapani vannitoakultuurist inspireeritud Eesti bränd",
-        desc: "Iga helguse tualett on saanud oma nime kodumaiste joastike järgi: Jägala, Ukuoru, Kohina ja Valaste. Toodete tehnoloogiline pool on koostatud arvestades Eesti nüansside – nagu karedam vesi – ja nõuetega. ",
-        img: "Assets/Images/Functions/eestiBränd.jpg"
-    },
-    {
         title: "Kareda vee filter",
         desc: "Varem on Eestis tarkade tualettide parimat toimimist takistanud kare vesi. Helguse tualettide integreeritud filter pehendab vett, kaitstes seadet kaltsifikatsiooni eest ja pikendades selle eluiga. See on meie jaoks üks olulisemaid detaile.",
         img: "Assets/Images/Functions/karedaVeeFilter.jpg"
@@ -30,7 +25,7 @@ const slides = [
         img: "Assets/Images/Functions/iseAvanevWCKaas.jpg"
     },
     {
-        title: "Õrn kuivatussüsteem",
+        title: "Õrn soe kuivatussüsteem",
         desc: "Peale pesu on järgmine samm kuivatus õrna ning pehme õhuvooluga.",
         img: "Assets/Images/Functions/kuivatus.jpg"
     },
@@ -115,10 +110,10 @@ function goTo(direction) {
 
     const L = getLayout();
     const mobile = strip.getBoundingClientRect().width < 600;
-    const ease = 'cubic-bezier(0.4, 0, 0.2, 1)';
-    const mobileEase = 'cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-    const imgT = mobile ? `left 0.14s ${mobileEase}, opacity 0.14s ${mobileEase}` : `left 0.22s ${ease}, top 0.22s ${ease}, width 0.22s ${ease}, height 0.22s ${ease}, opacity 0.22s ${ease}`;
-    const txtT = mobile ? `transform 0.14s ${mobileEase}` : `transform 0.22s ${ease}`;
+    const ease = 'cubic-bezier(0.22, 1, 0.36, 1)';
+    const mobileEase = 'cubic-bezier(0.22, 1, 0.36, 1)';
+    const imgT = mobile ? `left 0.5s ${mobileEase}, opacity 0.5s ${mobileEase}` : `left 0.6s ${ease}, top 0.6s ${ease}, width 0.6s ${ease}, height 0.6s ${ease}, opacity 0.6s ${ease}`;
+    const txtT = mobile ? `transform 0.5s ${mobileEase}` : `transform 0.6s ${ease}`;
 
     current = mod(current + (direction === 'next' ? 1 : -1), slides.length);
     updateText();
@@ -173,7 +168,7 @@ function goTo(direction) {
             imgEls = [buffer, imgEls[0], imgEls[1]];
         }
         isAnimating = false;
-    }, mobile ? 140 : 220);
+    }, mobile ? 500 : 600);
 }
 
 document.getElementById('prevBtn').addEventListener('click', () => goTo('prev'));
