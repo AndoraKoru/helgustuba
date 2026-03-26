@@ -120,16 +120,19 @@ function positionImages() {
 function updateText() {
     document.getElementById('slideTitle').textContent = slides[current].title;
     document.getElementById('slideDesc').textContent = slides[current].desc;
-    const mobileTitle = document.getElementById('mobileSlideTitle');
-    const mobileDesc = document.getElementById('mobileSlideDescOverlay');
-    if (mobileTitle) mobileTitle.innerHTML = slides[current].mobileTitle || slides[current].title;
-    if (mobileDesc) mobileDesc.textContent = slides[current].desc;
     // Collapse desc overlay on slide change
     const strip = document.querySelector('.theWhatImages');
     if (strip) strip.classList.remove('descExpanded');
     const btn = document.getElementById('mobilePlusBtn');
     if (btn) btn.textContent = '+';
     renderDots();
+}
+
+function updateMobileOverlay() {
+    const mobileTitle = document.getElementById('mobileSlideTitle');
+    const mobileDesc = document.getElementById('mobileSlideDescOverlay');
+    if (mobileTitle) mobileTitle.innerHTML = slides[current].mobileTitle || slides[current].title;
+    if (mobileDesc) mobileDesc.textContent = slides[current].desc;
 }
 
 function renderDots() {
@@ -208,6 +211,7 @@ function goTo(direction) {
             imgEls = [buffer, imgEls[0], imgEls[1]];
         }
         isAnimating = false;
+        if (mobile) updateMobileOverlay();
     }, mobile ? 500 : 600);
 }
 
@@ -220,6 +224,7 @@ setSrc(imgEls[1], slides[current]);
 setSrc(imgEls[2], slides[mod(current + 1, slides.length)]);
 positionImages();
 updateText();
+updateMobileOverlay();
 window.addEventListener('resize', positionImages);
 
 // Mobile "+" toggle
