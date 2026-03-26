@@ -2,32 +2,38 @@ const slides = [
     {
         title: "Kareda vee filter",
         desc: "Varem on Eestis tarkade tualettide parimat toimimist takistanud kare vesi. Helguse tualettide integreeritud filter pehendab vett, kaitstes seadet kaltsifikatsiooni eest ja pikendades selle eluiga. See on meie jaoks üks olulisemaid detaile.",
-        img: "Assets/Images/Functions/karedaVeeFilter.jpg"
+        img: "Assets/Images/Functions/karedaVeeFilter.jpg",
+        webp: "Assets/Images/Functions/karedaVeeFilter.webp"
     },
     {
         title: "Reguleeritava temperatuuriga prillaud",
         desc: "Soojus lisab igapäevasesse kasutusse selgelt tajutavat mugavust – eriti jahedatel hommikutel või külmemas vannitoas. Kui juba ära harjud, siis tagasiteed enam ei ole. Muidugi võib prilllaua jätta ka jahedaks.",
-        img: "Assets/Images/Functions/soojendatudIste.jpg"
+        img: "Assets/Images/Functions/soojendatudIste.jpg",
+        webp: "Assets/Images/Functions/soojendatudIste.webp"
     },
     {
         title: "Steriilne UV puhastus",
         desc: "UV-valgus steriliseerib poti pinna automaatselt pärast igat kasutust. See bakterite vähendamine tagab päriselt puhta ja hügieenilise kogemuse.",
-        img: "Assets/Images/Functions/steriilneUvPuhastus.jpg"
+        img: "Assets/Images/Functions/steriilneUvPuhastus.jpg",
+        webp: "Assets/Images/Functions/steriilneUvPuhastus.webp"
     },
     {
         title: "Sisse ehitatud veepaak",
         desc: "Kompaktne sisseehitatud veepaak säästab ruumi ja tagab vaikse ning tõhusa loputuse.",
-        img: "Assets/Images/Functions/sisseEhitatudVeepaak.jpg"
+        img: "Assets/Images/Functions/sisseEhitatudVeepaak.jpg",
+        webp: "Assets/Images/Functions/sisseEhitatudVeepaak.webp"
     },
     {
         title: "Ise avanev ja sulguv tualetikaas",
         desc: "Ise avanev ja sulguv tualetikaas kõrgendab tajutud modernsuse tunnet.",
-        img: "Assets/Images/Functions/iseAvanevWCKaas.jpg"
+        img: "Assets/Images/Functions/iseAvanevWCKaas.jpg",
+        webp: "Assets/Images/Functions/iseavanevWcKaas.webp"
     },
     {
         title: "Õrn soe kuivatussüsteem",
         desc: "Peale pesu on järgmine samm kuivatus õrna ning pehme õhuvooluga.",
-        img: "Assets/Images/Functions/kuivatus.jpg"
+        img: "Assets/Images/Functions/kuivatus.jpg",
+        webp: "Assets/Images/Functions/kuivatus.webp"
     },
 ];
 
@@ -38,13 +44,36 @@ const strip = document.querySelector('.theWhatImages');
 const textEl = document.querySelector('.theWhatRight');
 
 // Rotating array — [0]=prev, [1]=active, [2]=next
+// Each element is the <picture> element
 let imgEls = [
-    document.getElementById('imgPrev'),
-    document.getElementById('imgActive'),
-    document.getElementById('imgNext')
+    document.getElementById('picPrev'),
+    document.getElementById('picActive'),
+    document.getElementById('picNext')
 ];
 
 function mod(n, m) { return ((n % m) + m) % m; }
+
+// Set both <source srcset> and <img src> on a <picture> element
+function setSrc(pic, slide) {
+    pic.querySelector('source').srcset = slide.webp;
+    pic.querySelector('img').src = slide.img;
+}
+
+// Create a new <picture class="featureImg"> with WebP + JPG fallback
+function createPicture(slide, lazy) {
+    const pic = document.createElement('picture');
+    pic.className = 'featureImg';
+    const source = document.createElement('source');
+    source.type = 'image/webp';
+    source.srcset = slide.webp;
+    const img = document.createElement('img');
+    img.src = slide.img;
+    img.alt = '';
+    if (lazy) img.loading = 'lazy';
+    pic.appendChild(source);
+    pic.appendChild(img);
+    return pic;
+}
 
 function getLayout() {
     const W = strip.getBoundingClientRect().width;
@@ -59,7 +88,6 @@ function getLayout() {
     const sideTop = (containerH - sideH) / 2;
     const activeX = (W - activeW) / 2;
     const prevX = activeX - sideW - gap;
-    // shiftX so next image is exactly 2/3 visible (1/3 off right edge)
     const shiftX = mobile ? 0 : (W - activeW) / 2 - sideW * (2 / 3) - gap;
     return {
         prev: { left: prevX + shiftX, top: sideTop, width: sideW, height: sideH, opacity: 0.65 },
@@ -122,17 +150,17 @@ function goTo(direction) {
     textEl.style.transition = 'none';
     textEl.style.transform = `translateX(${direction === 'next' ? 40 : -40}px)`;
 
-    // Create a temporary incoming image, placed off-screen on the entry side
-    const buffer = document.createElement('img');
-    buffer.className = 'featureImg';
+    // Create a temporary incoming <picture>, placed off-screen on the entry side
+    const bufferSlide = direction === 'next'
+        ? slides[mod(current + 1, slides.length)]
+        : slides[mod(current - 1, slides.length)];
+    const buffer = createPicture(bufferSlide, true);
     strip.appendChild(buffer);
     buffer.style.transition = 'none';
 
     if (direction === 'next') {
-        buffer.src = slides[mod(current + 1, slides.length)].img;
         setPos(buffer, L.exitR);
     } else {
-        buffer.src = slides[mod(current - 1, slides.length)].img;
         setPos(buffer, L.exitL);
     }
 
@@ -147,12 +175,12 @@ function goTo(direction) {
         setPos(imgEls[0], L.exitL);  // prev   → exit left
         setPos(imgEls[1], L.prev);   // active → prev
         setPos(imgEls[2], L.active); // next   → active
-        setPos(buffer, L.next);   // buffer → next (slides in from right)
+        setPos(buffer, L.next);      // buffer → next (slides in from right)
     } else {
         setPos(imgEls[2], L.exitR);  // next   → exit right
         setPos(imgEls[1], L.next);   // active → next
         setPos(imgEls[0], L.active); // prev   → active
-        setPos(buffer, L.prev);   // buffer → prev (slides in from left)
+        setPos(buffer, L.prev);      // buffer → prev (slides in from left)
     }
 
     // Slide text in
@@ -175,9 +203,9 @@ document.getElementById('prevBtn').addEventListener('click', () => goTo('prev'))
 document.getElementById('nextBtn').addEventListener('click', () => goTo('next'));
 
 // Set initial srcs
-imgEls[0].src = slides[mod(current - 1, slides.length)].img;
-imgEls[1].src = slides[current].img;
-imgEls[2].src = slides[mod(current + 1, slides.length)].img;
+setSrc(imgEls[0], slides[mod(current - 1, slides.length)]);
+setSrc(imgEls[1], slides[current]);
+setSrc(imgEls[2], slides[mod(current + 1, slides.length)]);
 positionImages();
 updateText();
 window.addEventListener('resize', positionImages);

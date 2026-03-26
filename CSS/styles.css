@@ -493,8 +493,8 @@ p {
     display: none;
   }
   .heroContent {
-    text-align: center;
-    align-items: center;
+    text-align: left;
+    align-items: flex-start;
     justify-content: center;
     padding: 2rem 2rem;
   }
@@ -1279,9 +1279,18 @@ p {
   color: #21221F;
   line-height: 1.6;
   margin: 0 0 32px;
+}
+
+.brandWord {
+  display: inline-block;
   opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 1.8s ease, transform 1.8s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(14px);
+  transition: opacity 0.9s ease var(--delay, 0s), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s);
+}
+
+.brandStatement.visible .brandWord {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .brandStatementDesc {
@@ -1328,6 +1337,7 @@ p {
   .brandStatement {
     padding: 40px 24px 32px;
     margin: 60px auto;
+    text-align: left;
   }
   .brandStatementTitle {
     font-size: 1.2rem;
@@ -1696,8 +1706,16 @@ p {
 
 .featureImg {
   position: absolute;
-  object-fit: cover;
   border-radius: 12px;
+  display: block;
+  overflow: hidden;
+}
+
+.featureImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   display: block;
 }
 
