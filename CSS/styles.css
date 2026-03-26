@@ -674,21 +674,31 @@ p {
   }
 
   .theWhatTop {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 16px;
     padding: 0 24px 20px;
+    min-height: 0;
   }
 
   .theWhatRight {
+    padding-top: 0;
+    flex: 1;
+  }
+
+  .slideDesc,
+  .slideTitle {
     display: none;
+  }
+
+  .theWhatLeft {
+    flex: none;
   }
 
   .theWhatLeft h2 {
     font-size: 1.35rem;
     margin-bottom: 0;
     text-align: left;
-    width: 100%;
     line-height: 1.25;
   }
 
@@ -696,17 +706,20 @@ p {
     display: none;
   }
 
-  .theWhatImages {
-    height: 420px;
+  .theWhatDots {
+    display: flex;
+    justify-content: flex-start;
+    padding: 16px 16px 28px 21px;
+    margin-top: 12px;
+  }
+
+  /* Wrapper: relative so overlay can be absolute over the images */
+  .theWhatImageWrap {
+    position: relative;
     margin: 0 16px;
   }
 
-  .theWhatDots {
-    display: flex;
-    padding: 16px 0 28px;
-  }
-
-  /* Mobile overlay inside .theWhatImages */
+  /* Overlay on wrapper — outside overflow:hidden, so it's not clipped */
   .mobileSlideOverlay {
     display: flex;
     align-items: center;
@@ -720,15 +733,14 @@ p {
   }
 
   .mobileSlideTitle {
-    background: rgba(255,255,255,0.88);
-    backdrop-filter: blur(6px);
-    border-radius: 100px;
-    padding: 8px 18px;
+    background: #fff;
+    border-radius: 50px;
+    padding: 8px 16px;
     font-family: "Lexend Peta", sans-serif;
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     font-weight: 300;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
     color: #21221F;
     pointer-events: none;
   }
@@ -741,27 +753,27 @@ p {
     height: 38px;
     border-radius: 50%;
     border: none;
-    background: rgba(255,255,255,0.88);
-    backdrop-filter: blur(6px);
-    font-size: 1.3rem;
+    background: #fff;
+    font-size: 1.4rem;
     font-weight: 300;
     color: #21221F;
     cursor: pointer;
     pointer-events: all;
-    transition: background 0.2s;
     flex-shrink: 0;
+    line-height: 1;
   }
 
+  /* Desc overlay slides up from bottom of the image */
   .mobileSlideDescOverlay {
     display: block;
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(255,255,255,0.92);
+    background: rgba(255,255,255,0.94);
     backdrop-filter: blur(8px);
     border-radius: 0 0 16px 16px;
-    padding: 20px 20px;
+    padding: 20px 20px 24px;
     font-size: 0.9rem;
     line-height: 1.6;
     color: #21221F;
@@ -772,6 +784,11 @@ p {
 
   .theWhatImages.descExpanded .mobileSlideDescOverlay {
     transform: translateY(0);
+  }
+
+  .theWhatImages {
+    position: relative;
+    height: 440px;
   }
 }
 
@@ -982,15 +999,23 @@ p {
     text-align: left;
     padding-left: 24px;
   }
+  .kataloogIntro {
+    text-align: left;
+    padding-left: 24px;
+    margin: 0 0 24px;
+  }
   .kataloogImg {
     height: 260px;
   }
   .kataloogCard {
-    padding: 24px 40px 24px 24px;
+    padding: 24px 24px 32px;
     width: 100% !important;
     max-width: 100%;
     box-sizing: border-box;
-    overflow: hidden;
+    overflow: visible;
+    height: auto !important;
+    position: static;
+    transform: none;
   }
   .kataloogName {
     overflow: hidden;
@@ -1033,6 +1058,9 @@ p {
     width: 100%;
     box-sizing: border-box;
     padding: 0;
+    height: auto !important;
+    overflow: visible;
+    margin: 0;
   }
   
   .kataloogFeatures li,
@@ -1322,8 +1350,9 @@ p {
     padding: 48px 16px 60px;
   }
   .functionsVideo h2 {
-    font-size: 1.4rem;
+    font-size: 1.35rem;
     margin-bottom: 24px;
+    text-align: left !important;
   }
   .functionsVideoWrap {
     border-radius: 16px;
@@ -1349,7 +1378,7 @@ p {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #21221F;
-  line-height: 1.6;
+  line-height: 1.9;
   margin: 0 0 32px;
 }
 
@@ -1385,8 +1414,15 @@ p {
 .brandMark {
   background: #CDC5BA;
   border-radius: 6px;
-  padding: 2px 10px;
+  padding: 4px 10px;
   font-style: normal;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.brandMarkEesti {
+  background: #C2D0D9;
+  padding: 0 12px;
 }
 
 .brandMarkSub {
@@ -1401,7 +1437,7 @@ p {
     margin: 80px auto;
   }
   .brandStatementTitle {
-    font-size: 1.6rem;
+    font-size: 1.35rem;
   }
 }
 
@@ -1412,7 +1448,8 @@ p {
     text-align: left;
   }
   .brandStatementTitle {
-    font-size: 1.2rem;
+    font-size: 1.35rem;
+    line-height: 2;
   }
   .brandStatementDesc {
     font-size: 0.9rem;

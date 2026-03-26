@@ -91,14 +91,14 @@
     </section>
 
     <section class="brandStatement" id="brandist">
-        <h2 class="brandStatementTitle">Jaapani vannitoakultuurist inspireeritud <mark class="brandMark">Eesti</mark> <mark class="brandMark">nutitualeti bränd</mark></h2>
+        <h2 class="brandStatementTitle">Jaapani vannitoakultuurist inspireeritud <mark class="brandMark brandMarkEesti">Eesti</mark> <mark class="brandMark">nutitualeti bränd</mark></h2>
         <p class="brandStatementDesc">Eesti hõng põimub siin Jaapani tehnoloogiaga neljas disainis. Neist <mark class="brandMarkSub">Kohina</mark> ja <mark class="brandMarkSub">Valaste</mark> on seinapealsed ning <mark class="brandMarkSub">Ukuoru</mark> ja <mark class="brandMarkSub">Jägala</mark> põrandapealsed tualetid. Samasuguseid funktsioone – nagu kareda vee filter, reguleeritava temperatuuriga prilllaud ja paljud teised – jagavad need kõik.</p>
     </section>
 
     <section class="theWhat" id="omadused">
         <div class="theWhatTop">
             <div class="theWhatLeft">
-                <h2>MIS FUNKTSIOONID<br>TUALETTIDEL ON?</h2>
+                <h2>TUALETTIDE<br class="mobileBreak"> PÕHILISED<br>FUNKTSIOONID</h2>
                 <div class="theWhatArrows">
                     <button class="arrow" id="prevBtn" aria-label="Eelmine">&#8592;</button>
                     <button class="arrow" id="nextBtn" aria-label="Järgmine">&#8594;</button>
@@ -109,15 +109,17 @@
                 <p id="slideDesc" class="slideDesc"></p>
             </div>
         </div>
-        <div class="theWhatImages">
-            <picture id="picPrev" class="featureImg"><source id="srcPrev" type="image/webp"><img id="imgPrev" src="" alt="" loading="lazy"></picture>
-            <picture id="picActive" class="featureImg"><source id="srcActive" type="image/webp"><img id="imgActive" src="" alt=""></picture>
-            <picture id="picNext" class="featureImg"><source id="srcNext" type="image/webp"><img id="imgNext" src="" alt="" loading="lazy"></picture>
+        <div class="theWhatImageWrap">
+            <div class="theWhatImages">
+                <picture id="picPrev" class="featureImg"><source id="srcPrev" type="image/webp"><img id="imgPrev" src="" alt="" loading="lazy"></picture>
+                <picture id="picActive" class="featureImg"><source id="srcActive" type="image/webp"><img id="imgActive" src="" alt=""></picture>
+                <picture id="picNext" class="featureImg"><source id="srcNext" type="image/webp"><img id="imgNext" src="" alt="" loading="lazy"></picture>
+                <div class="mobileSlideDescOverlay" id="mobileSlideDescOverlay"></div>
+            </div>
             <div class="mobileSlideOverlay">
                 <span class="mobileSlideTitle" id="mobileSlideTitle"></span>
                 <button class="mobilePlusBtn" id="mobilePlusBtn">+</button>
             </div>
-            <div class="mobileSlideDescOverlay" id="mobileSlideDescOverlay"></div>
         </div>
         <div class="theWhatDots" id="theWhatDots"></div>
     </section>

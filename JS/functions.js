@@ -7,6 +7,7 @@ const slides = [
     },
     {
         title: "Reguleeritava temperatuuriga prillaud",
+        mobileTitle: "Reguleeritava<br>temperatuuriga prillaud",
         desc: "Soojus lisab igapäevasesse kasutusse selgelt tajutavat mugavust – eriti jahedatel hommikutel või külmemas vannitoas. Kui juba ära harjud, siis tagasiteed enam ei ole. Muidugi võib prilllaua jätta ka jahedaks.",
         img: "Assets/Images/Functions/soojendatudIste.jpg",
         webp: "Assets/Images/Functions/soojendatudIste.webp"
@@ -25,6 +26,7 @@ const slides = [
     },
     {
         title: "Ise avanev ja sulguv tualetikaas",
+        mobileTitle: "Ise avanev ja<br>sulguv tualetikaas",
         desc: "Ise avanev ja sulguv tualetikaas kõrgendab tajutud modernsuse tunnet.",
         img: "Assets/Images/Functions/iseAvanevWCKaas.jpg",
         webp: "Assets/Images/Functions/iseavanevWcKaas.webp"
@@ -80,21 +82,22 @@ function getLayout() {
     const mobile = W < 600;
     const gap = mobile ? 10 : 28;
     const containerH = strip.getBoundingClientRect().height;
-    const activeW = mobile ? Math.round(W * 0.72) : 490;
-    const activeH = mobile ? Math.round(containerH * 0.85) : 313;
-    const sideW = mobile ? Math.round(W * 0.55) : 399;
-    const sideH = mobile ? Math.round(containerH * 0.7) : 244;
+    const activeW = mobile ? W : 490;
+    const activeH = mobile ? containerH : 313;
+    const sideW = mobile ? W : 399;
+    const sideH = mobile ? containerH : 244;
     const activeTop = (containerH - activeH) / 2;
     const sideTop = (containerH - sideH) / 2;
     const activeX = (W - activeW) / 2;
     const prevX = activeX - sideW - gap;
     const shiftX = mobile ? 0 : (W - activeW) / 2 - sideW * (2 / 3) - gap;
+    const sideOpacity = mobile ? 1 : 0.65;
     return {
-        prev: { left: prevX + shiftX, top: sideTop, width: sideW, height: sideH, opacity: 0.65 },
+        prev: { left: prevX + shiftX, top: sideTop, width: sideW, height: sideH, opacity: sideOpacity },
         active: { left: activeX + shiftX, top: activeTop, width: activeW, height: activeH, opacity: 1 },
-        next: { left: activeX + activeW + gap + shiftX, top: sideTop, width: sideW, height: sideH, opacity: 0.65 },
-        exitL: { left: -(sideW + gap), top: sideTop, width: sideW, height: sideH, opacity: 0.65 },
-        exitR: { left: W + gap, top: sideTop, width: sideW, height: sideH, opacity: 0.65 }
+        next: { left: activeX + activeW + gap + shiftX, top: sideTop, width: sideW, height: sideH, opacity: sideOpacity },
+        exitL: { left: -(sideW + gap), top: sideTop, width: sideW, height: sideH, opacity: sideOpacity },
+        exitR: { left: W + gap, top: sideTop, width: sideW, height: sideH, opacity: sideOpacity }
     };
 }
 
@@ -119,7 +122,7 @@ function updateText() {
     document.getElementById('slideDesc').textContent = slides[current].desc;
     const mobileTitle = document.getElementById('mobileSlideTitle');
     const mobileDesc = document.getElementById('mobileSlideDescOverlay');
-    if (mobileTitle) mobileTitle.textContent = slides[current].title;
+    if (mobileTitle) mobileTitle.innerHTML = slides[current].mobileTitle || slides[current].title;
     if (mobileDesc) mobileDesc.textContent = slides[current].desc;
     // Collapse desc overlay on slide change
     const strip = document.querySelector('.theWhatImages');
@@ -228,10 +231,48 @@ if (mobilePlusBtn) {
     });
 }
 
-// Swipe support
+// Drag / swipe support
 let touchStartX = 0;
-strip.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+let isDragging = false;
+let dragDx = 0;
+const dragEase = 'cubic-bezier(0.22, 1, 0.36, 1)';
+
+strip.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX;
+    if (!isMobile()) return;
+    isDragging = true;
+    dragDx = 0;
+    imgEls.forEach(el => el.style.transition = 'none');
+}, { passive: true });
+
+strip.addEventListener('touchmove', e => {
+    if (!isDragging || !isMobile()) return;
+    dragDx = e.touches[0].clientX - touchStartX;
+    imgEls[1].style.transform = `translateX(${dragDx}px)`;
+    if (dragDx > 0) {
+        imgEls[0].style.transform = `translateX(${dragDx}px)`;
+        imgEls[2].style.transform = '';
+    } else {
+        imgEls[2].style.transform = `translateX(${dragDx}px)`;
+        imgEls[0].style.transform = '';
+    }
+}, { passive: true });
+
 strip.addEventListener('touchend', e => {
-    const diff = touchStartX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 40) goTo(diff > 0 ? 'next' : 'prev');
+    if (!isMobile()) {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) goTo(diff > 0 ? 'next' : 'prev');
+        return;
+    }
+    isDragging = false;
+    if (Math.abs(dragDx) > 60 && !isAnimating) {
+        imgEls.forEach(el => el.style.transform = '');
+        goTo(dragDx > 0 ? 'prev' : 'next');
+    } else {
+        imgEls.forEach(el => {
+            el.style.transition = `transform 0.35s ${dragEase}`;
+            el.style.transform = '';
+        });
+        setTimeout(() => imgEls.forEach(el => el.style.transition = ''), 350);
+    }
 }, { passive: true });
