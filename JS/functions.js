@@ -117,6 +117,15 @@ function positionImages() {
 function updateText() {
     document.getElementById('slideTitle').textContent = slides[current].title;
     document.getElementById('slideDesc').textContent = slides[current].desc;
+    const mobileTitle = document.getElementById('mobileSlideTitle');
+    const mobileDesc = document.getElementById('mobileSlideDescOverlay');
+    if (mobileTitle) mobileTitle.textContent = slides[current].title;
+    if (mobileDesc) mobileDesc.textContent = slides[current].desc;
+    // Collapse desc overlay on slide change
+    const strip = document.querySelector('.theWhatImages');
+    if (strip) strip.classList.remove('descExpanded');
+    const btn = document.getElementById('mobilePlusBtn');
+    if (btn) btn.textContent = '+';
     renderDots();
 }
 
@@ -209,6 +218,15 @@ setSrc(imgEls[2], slides[mod(current + 1, slides.length)]);
 positionImages();
 updateText();
 window.addEventListener('resize', positionImages);
+
+// Mobile "+" toggle
+const mobilePlusBtn = document.getElementById('mobilePlusBtn');
+if (mobilePlusBtn) {
+    mobilePlusBtn.addEventListener('click', () => {
+        const expanded = strip.classList.toggle('descExpanded');
+        mobilePlusBtn.textContent = expanded ? '×' : '+';
+    });
+}
 
 // Swipe support
 let touchStartX = 0;
