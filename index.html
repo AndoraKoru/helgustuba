@@ -7,7 +7,7 @@
     <title>Helgus</title>
 
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="preload" href="Assets/Images/Background/heroVideoDestop.mp4" as="video" type="video/mp4">
+    <link rel="preload" href="Assets/Images/Background/heroVideo2.mp4" as="video" type="video/mp4">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -80,7 +80,7 @@
     <!-- HERO -->
     <section class="hero" aria-label="Helgus hero">
         <video class="heroVideo" autoplay muted loop playsinline>
-            <source src="Assets/Images/Background/heroVideoDestop.mp4" type="video/mp4">
+            <source src="Assets/Images/Background/heroVideo2.mp4" type="video/mp4">
         </video>
 
         <div class="heroContent">
@@ -92,7 +92,7 @@
 
     <section class="brandStatement" id="brandist">
         <h2 class="brandStatementTitle">Jaapani vannitoakultuurist inspireeritud <mark class="brandMark brandMarkEesti">Eesti</mark> <mark class="brandMark">nutitualeti bränd</mark></h2>
-        <p class="brandStatementDesc">Eesti hõng põimub siin Jaapani tehnoloogiaga neljas disainis. Neist <mark class="brandMarkSub">Kohina</mark> ja <mark class="brandMarkSub">Valaste</mark> on seinapealsed ning <mark class="brandMarkSub">Ukuoru</mark> ja <mark class="brandMarkSub">Jägala</mark> põrandapealsed tualetid. Samasuguseid funktsioone – nagu kareda vee filter, reguleeritava temperatuuriga prilllaud ja paljud teised – jagavad need kõik.</p>
+        <p class="brandStatementDesc">Eesti hõng põimub siin Jaapani tehnoloogiaga neljas disainis. Neist <a href="#kataloogStage0" class="brandMarkSub">Kohina</a> ja <a href="#kataloogStage1" class="brandMarkSub">Valaste</a> on seinapealsed ning <a href="#kataloogStage2" class="brandMarkSub">Ukuoru</a> ja <a href="#kataloogStage3" class="brandMarkSub">Jägala</a> põrandapealsed tualetid. Samasuguseid funktsioone – nagu kareda vee filter, reguleeritava temperatuuriga prilllaud ja paljud teised – jagavad need kõik.</p>
     </section>
 
     <section class="theWhat" id="omadused">
@@ -165,7 +165,7 @@
                     <span class="kataloogBubble kataloogBubble--warm">Seinapealne</span>
                     <span class="kataloogBubble kataloogBubble--cool">Õhuline disain</span>
                 </div>
-                <a class="kataloogMorePhotosMobile" href="#" data-index="0">+</a>
+                <a class="kataloogMorePhotosMobile" href="#" data-index="0">rohkem pilte</a>
             </div>
             <div class="kataloogCard">
                 <p class="kataloogName"></p>
@@ -190,7 +190,7 @@
                     <span class="kataloogBubble kataloogBubble--warm">Seinapealne</span>
                     <span class="kataloogBubble kataloogBubble--cool">Isikupärane</span>
                 </div>
-                <a class="kataloogMorePhotosMobile" href="#" data-index="1">+</a>
+                <a class="kataloogMorePhotosMobile" href="#" data-index="1">rohkem pilte</a>
             </div>
             <div class="kataloogCard">
                 <p class="kataloogName"></p>
@@ -215,7 +215,7 @@
                     <span class="kataloogBubble kataloogBubble--warm">Põrandapealne</span>
                     <span class="kataloogBubble kataloogBubble--cool">Voolujooneline</span>
                 </div>
-                <a class="kataloogMorePhotosMobile" href="#" data-index="2">+</a>
+                <a class="kataloogMorePhotosMobile" href="#" data-index="2">rohkem pilte</a>
             </div>
             <div class="kataloogCard">
                 <p class="kataloogName"></p>
@@ -240,7 +240,7 @@
                     <span class="kataloogBubble kataloogBubble--warm">Põrandapealne</span>
                     <span class="kataloogBubble kataloogBubble--cool">Nurgeline vorm</span>
                 </div>
-                <a class="kataloogMorePhotosMobile" href="#" data-index="3">+</a>
+                <a class="kataloogMorePhotosMobile" href="#" data-index="3">rohkem pilte</a>
             </div>
             <div class="kataloogCard">
                 <p class="kataloogName"></p>
@@ -507,7 +507,7 @@
     <div class="galleryModal" id="galleryModal">
         <div class="galleryHeader">
             <span class="galleryTitle" id="galleryTitle"></span>
-            <button class="galleryClose" id="galleryClose">Close</button>
+            <button class="galleryClose" id="galleryClose">Sulge</button>
         </div>
         <div class="galleryGrid" id="galleryGrid"></div>
     </div>
@@ -570,12 +570,53 @@
         const galleryGrid  = document.getElementById('galleryGrid');
         const galleryTitle = document.getElementById('galleryTitle');
 
+        let currentGalleryImages = [];
+        let lightboxIndex = 0;
+
+        const lightbox = document.createElement('div');
+        lightbox.id = 'lightbox';
+        lightbox.innerHTML = `
+            <button class="lightboxClose" id="lightboxClose">&#x2715;</button>
+            <button class="lightboxNav lightboxPrev" id="lightboxPrev">&#8592;</button>
+            <img class="lightboxImg" id="lightboxImg" src="" alt="">
+            <button class="lightboxNav lightboxNext" id="lightboxNext">&#8594;</button>
+        `;
+        document.body.appendChild(lightbox);
+
+        function openLightbox(i) {
+            lightboxIndex = i;
+            document.getElementById('lightboxImg').src = currentGalleryImages[i];
+            lightbox.classList.add('open');
+        }
+
+        function closeLightbox() { lightbox.classList.remove('open'); }
+
+        function lightboxStep(dir) {
+            lightboxIndex = (lightboxIndex + dir + currentGalleryImages.length) % currentGalleryImages.length;
+            document.getElementById('lightboxImg').src = currentGalleryImages[lightboxIndex];
+        }
+
+        document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+        document.getElementById('lightboxPrev').addEventListener('click', () => lightboxStep(-1));
+        document.getElementById('lightboxNext').addEventListener('click', () => lightboxStep(1));
+        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('open')) return;
+            if (e.key === 'ArrowLeft') lightboxStep(-1);
+            if (e.key === 'ArrowRight') lightboxStep(1);
+            if (e.key === 'Escape') closeLightbox();
+        });
+
         function openGallery(index) {
             const p = products[index];
+            currentGalleryImages = galleryImages[index];
             galleryTitle.textContent = p.name;
-            galleryGrid.innerHTML = galleryImages[index].map(src =>
-                `<div class="galleryItem"><img src="${src}" alt="${p.name}" loading="lazy"></div>`
+            galleryGrid.innerHTML = currentGalleryImages.map((src, i) =>
+                `<div class="galleryItem" data-index="${i}"><img src="${src}" alt="${p.name}" loading="lazy"></div>`
             ).join('');
+            galleryGrid.querySelectorAll('.galleryItem').forEach(item => {
+                item.addEventListener('click', () => openLightbox(parseInt(item.dataset.index)));
+            });
             galleryModal.classList.add('open');
             document.body.style.overflow = 'hidden';
         }

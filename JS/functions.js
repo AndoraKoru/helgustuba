@@ -1,7 +1,7 @@
 const slides = [
     {
         title: "Kareda vee filter",
-        desc: "Varem on Eestis tarkade tualettide parimat toimimist takistanud kare vesi. Helguse tualettide integreeritud filter pehendab vett, kaitstes seadet kaltsifikatsiooni eest ja pikendades selle eluiga. See on meie jaoks üks olulisemaid detaile.",
+        desc: "Varem on Eestis tarkade tualettide parimat toimimist takistanud kare vesi. Helguse tualettide integreeritud filter pehmendab vett, kaitseb katlakivi eest ja pikendab seeläbi tualeti eluiga. See on meie jaoks üks olulisemaid detaile.",
         img: "Assets/Images/Functions/karedaVeeFilter.jpg",
         webp: "Assets/Images/Functions/karedaVeeFilter.webp"
     },
@@ -14,7 +14,7 @@ const slides = [
     },
     {
         title: "Steriilne UV puhastus",
-        desc: "UV-valgus steriliseerib poti pinna automaatselt pärast igat kasutust. See bakterite vähendamine tagab päriselt puhta ja hügieenilise kogemuse.",
+        desc: "UV-valgus steriliseerib poti pinna automaatselt pärast igat kasutust. Selline bakterite vähendamine tagab päriselt puhta ja hügieenilise kogemuse.",
         img: "Assets/Images/Functions/steriilneUvPuhastus.jpg",
         webp: "Assets/Images/Functions/steriilneUvPuhastus.webp"
     },
@@ -33,7 +33,7 @@ const slides = [
     },
     {
         title: "Õrn soe kuivatussüsteem",
-        desc: "Peale pesu on järgmine samm kuivatus õrna ning pehme õhuvooluga.",
+        desc: "Peale pesu on järgmine samm kuivatus õrna, sooja ning pehme õhuvooluga.",
         img: "Assets/Images/Functions/kuivatus.jpg",
         webp: "Assets/Images/Functions/kuivatus.webp"
     },
