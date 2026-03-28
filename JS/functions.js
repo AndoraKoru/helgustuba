@@ -25,7 +25,7 @@ const slides = [
         webp: "Assets/Images/Functions/sisseEhitatudVeepaak.webp"
     },
     {
-        title: "Iseavanev ja sulguv tualetikaas",
+        title: "Iseavanev ja -sulguv tualetikaas",
         mobileTitle: "Ise avanev ja<br>sulguv tualetikaas",
         desc: "Ise avanev ja sulguv tualetikaas kõrgendab tajutud modernsuse tunnet.",
         img: "Assets/Images/Functions/iseAvanevWCKaas.jpg",

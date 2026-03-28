@@ -38,7 +38,7 @@ const products = [
             "Assets/Images/Catalogue/Valaste/ei Valge lahti.webp",
         ],
         pdf: "Assets/Images/tooteLehed/VALASTE.pdf",
-        description: "Valaste on väljapaistva vormiga nutitualett, mille inspiratsioon pärineb Baltimaade kõrgeima tehisliku joa geoloogilisest ilust. Muudetavad värvikihtide lahendused ülaplaadil ja külgedel loovad disaini, mis meenutab paekalda kihistusi ja toob vannituppa sügavuse ning isikupära. Valastet on võimalik tellida üleni valgena, aga ka kuldse ja/või hõbedase plaadi ja/või äärega.",
+        description: "Valaste on tualett, mis on saanud inspiratsiooni Baltimaade kõrgeima tehisliku joa geoloogilise kihistuse ilust. Selle tualeti kombineeritavad värvide lahendused ülaplaadil ja külgedel loovad disaini, mis meenutab paekalda kihistusi ja toob vannituppa sügavuse ning isikupära. Valastet on võimalik tellida üleni valgena, aga ka kuldse ja/või hõbedase plaadi ja/või äärega.",
         specs: "Mõõdud: 605×380×355 mm. Iste kõrgus: 440 mm. Neto kaal: 34,5 kg. Vool: 220V / 50Hz. Loputusveepaak: 4,8 L. Loputusvee kogus: 2,7 L / 4,2 L. Loputuskast: sisseehitatud. Äravool: tahavooluga 180 mm (allavooluga variant tellitav 300–400 mm). Sertifikaat: CE, EN1717, RoHS. Veesurve: 0,1 MPa – 0,75 MPa. Kaabli pikkus: 1,5 m."
     },
     {
@@ -70,7 +70,7 @@ const products = [
             "Assets/Images/Catalogue/Jägala/Jägala22.webp",
         ],
         pdf: "Assets/Images/tooteLehed/JÄGALA.pdf",
-        description: "Jägala juga on Eesti loodusjõu üks selgemaid sümboleid – lai, võimas ja iseloomult põhjamaine. Sama mõte kandub ka selle mudeli disaini: nurgeline vorm meenutab paekallast, tugev siluett loob ruumis kohalolu ning puhas joonekasutus mõjub sama selgelt nagu langev veekardin. Jägalat on võimalik tellida valge või mustana.",
+        description: "Jägala juga on Eesti loodusjõu üks selgemaid sümboleid – lai, võimas, järsk. Sama hõng kandub ka selle mudeli disaini, kus nurgeline vorm meenutab Jägala kallast, tugev siluett loob ruumis kohalolu ning selge joonekasutus mõjub kui langev veekardin. Jägalat on võimalik tellida valge või mustana.",
         specs: "Mõõdud: 660×415×465 mm. Neto kaal: 46,5 kg. Vool: 220V / 50Hz. Loputusveepaak: 4,8 L. Loputusvee kogus: 2,7 L / 4,2 L. Loputuskast: sisseehitatud. Äravool: tahavooluga 180 mm (allavooluga variant tellitav 300–400 mm). Sertifikaat: CE, EN1717, RoHS. Veesurve: 0,1 MPa – 0,75 MPa. Kaabli pikkus: 1,5 m."
     }
 ];

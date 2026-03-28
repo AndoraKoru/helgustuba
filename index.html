@@ -304,11 +304,10 @@
         <div class="contactInner">
             <div class="contactLeft">
                 <h2 class="contactHeading"><span class="typeLine" data-text="VÕTA MEIEGA"></span><br><span class="typeLine" data-text="ÜHENDUST"></span></h2>
-                <p class="contactLeftText">Täida suhtlusväli siin või tere@helgustuba.ee</p>
+                <p class="contactLeftText">Täida suhtlusväli siin, kirjuta tere@helgustuba.ee või helista Jesperile 58533518</p>
             </div>
             <div class="contactRight">
-                <form class="contactForm" action="https://formspree.io/f/xbdzooke" method="POST">
-                    <input type="hidden" name="_replyto" value="">
+                <form class="contactForm" id="contactForm">
                     <div class="contactRow">
                         <div class="contactField">
 <input class="contactInput" type="text" name="nimi" placeholder="Sinu nimi">
@@ -319,17 +318,45 @@
                     </div>
                     <div class="contactRow">
                         <div class="contactField">
-<input class="contactInput" type="text" name="ettevõte" placeholder="Ettevõtte nimi">
-                        </div>
-                        <div class="contactField">
-<input class="contactInput" type="email" name="email" placeholder="E-posti aadress">
+<input class="contactInput" type="text" name="kontakt" placeholder="E-posti aadress">
                         </div>
                     </div>
                     <div class="contactField contactFieldFull">
 <textarea class="contactInput contactTextarea" name="sõnum" placeholder="Kirjuta siia..."></textarea>
                     </div>
                     <button class="contactSubmit" type="submit">Saada &rarr;</button>
+                    <p class="contactStatus" id="contactStatus"></p>
                 </form>
+                <script>
+                    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+                        e.preventDefault();
+                        const btn = this.querySelector('.contactSubmit');
+                        const status = document.getElementById('contactStatus');
+                        btn.disabled = true;
+                        btn.textContent = 'Saadan...';
+                        const data = Object.fromEntries(new FormData(this));
+                        try {
+                            const res = await fetch('https://formspree.io/f/xbdzooke', {
+                                method: 'POST',
+                                headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+                                body: JSON.stringify(data)
+                            });
+                            if (res.ok) {
+                                status.textContent = 'Sõnum saadetud! Võtame varsti ühendust.';
+                                status.style.color = '#3a3a38';
+                                this.reset();
+                            } else {
+                                status.textContent = 'Midagi läks valesti. Proovi uuesti.';
+                                status.style.color = '#c0392b';
+                            }
+                        } catch {
+                            status.textContent = 'Ühenduse viga. Proovi uuesti.';
+                            status.style.color = '#c0392b';
+                        }
+                        btn.disabled = false;
+                        btn.innerHTML = 'Saada &rarr;';
+                    });
+                </script>
             </div>
         </div>
     </section>
