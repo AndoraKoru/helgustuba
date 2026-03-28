@@ -1054,6 +1054,8 @@ p {
     width: 100%;
     box-sizing: border-box;
     padding-right: 24px;
+    height: auto !important;
+    overflow: visible;
   }
   .kataloogSpecs {
     width: 100%;
