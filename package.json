@@ -1,4 +1,9 @@
 {
+  "scripts": {
+    "optimize:footer": "sharp -i Assets/Images/Background/footerBackground.png -o Assets/Images/Background/footerBackground.webp",
+    "optimize:functions": "for f in Assets/Images/Functions/*.jpg; do npx sharp-cli -i \"$f\" -o \"${f%.jpg}.webp\"; done",
+    "optimize:all": "npm run optimize:footer && npm run optimize:functions"
+  },
   "dependencies": {
     "sharp-cli": "^5.2.0"
   }

@@ -483,18 +483,8 @@ p {
   .hero {
     border-radius: 0 0 80px 80px;
     min-height: 100dvh;
-    background-image: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.05) 0%,
-        rgba(10, 12, 18, 0.35) 100%
-      ),
-      url("/Assets/Images/Background/heroGif.gif");
-    background-position: center;
-    background-size: cover;
   }
-  .heroVideo {
-    display: none;
-  }
+  /* heroVideo now shows on mobile too — video is 1.7 MB vs the old 6.9 MB GIF */
   .heroContent {
     text-align: left;
     align-items: flex-start;
@@ -2255,7 +2245,12 @@ p {
 
 /* ── FOOTER ── */
 .footer {
-  background: url("/Assets/Images/Background/footerBackground.png") center/cover no-repeat;
+  /* Once you convert footerBackground.png → footerBackground.webp (see manual fixes),
+     browsers that support WebP will automatically use the smaller version. */
+  background: image-set(
+      url("/Assets/Images/Background/footerBackground.webp") type("image/webp"),
+      url("/Assets/Images/Background/footerBackground.png")  type("image/png")
+    ) center/cover no-repeat;
   border-radius: 280px 280px 0 0;
   margin-top: 0;
   overflow: hidden;

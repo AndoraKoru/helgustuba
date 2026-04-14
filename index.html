@@ -4,10 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Helgus</title>
-
+    <meta name="description"                                                                                                                             
+        content="Helgus toob Jaapani nutitualeti tehnoloogia Eestisse. Soojendatav prillaud, UV steriliseerimine, kareda vee filter. Neli mudelit:     
+  Kohina, Valaste, Ukuoru, Jägala.">  
+  <title>Helgus – Nutitualetid Eestis | Jaapani wc, bidee, tark tualett soojendatava prillauaga </title>                                                                
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="preload" href="Assets/Images/Background/heroVideo2.mp4" as="video" type="video/mp4">
+    <script>
+        // Only preload the hero video on desktop — mobile uses the same video but
+        // preloading on a small screen wastes bandwidth unnecessarily.
+        if (window.innerWidth > 540) {
+            var l = document.createElement('link');
+            l.rel = 'preload'; l.as = 'video';
+            l.type = 'video/mp4';
+            l.href = 'Assets/Images/Background/heroVideo2.mp4';
+            document.currentScript.parentNode.insertBefore(l, document.currentScript.nextSibling);
+        }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,7 +91,8 @@
 
     <!-- HERO -->
     <section class="hero" aria-label="Helgus hero">
-        <video class="heroVideo" autoplay muted loop playsinline>
+        <video class="heroVideo" autoplay muted loop playsinline
+               poster="Assets/Images/Background/desktopHeroImg.webp">
             <source src="Assets/Images/Background/heroVideo2.mp4" type="video/mp4">
         </video>
 
@@ -112,7 +125,7 @@
         <div class="theWhatImageWrap">
             <div class="theWhatImages">
                 <picture id="picPrev" class="featureImg"><source id="srcPrev" type="image/webp"><img id="imgPrev" src="" alt="" loading="lazy"></picture>
-                <picture id="picActive" class="featureImg"><source id="srcActive" type="image/webp"><img id="imgActive" src="" alt=""></picture>
+                <picture id="picActive" class="featureImg"><source id="srcActive" type="image/webp"><img id="imgActive" src="" alt="" fetchpriority="high"></picture>
                 <picture id="picNext" class="featureImg"><source id="srcNext" type="image/webp"><img id="imgNext" src="" alt="" loading="lazy"></picture>
                 <div class="mobileSlideDescOverlay" id="mobileSlideDescOverlay"></div>
             </div>
@@ -128,7 +141,8 @@
         <h2>Vaata ka videot!</h2>
         <div class="functionsVideoWrap">
             <video autoplay muted loop playsinline>
-                <source src="Assets/Images/Functions/functionsShortVideo.mov" type="video/mp4">
+                <!-- TODO: convert functionsShortVideo.mov (89 MB) to MP4+WebM — see manual fixes below -->
+                <source src="Assets/Images/Functions/functionsShortVideo.mov" type="video/quicktime">
             </video>
         </div>
     </section>
@@ -152,8 +166,8 @@
 
 
     <section class="kataloog" id="kataloog">
-        <h2 class="kataloogTitle">kataloog</h2>
-        <p class="kataloogIntro">Alla kerides avanevad järjest vaated helguse neljale tootele. Toodete tehniliste andmete jaoks saada meile päring! Paneme peagi tootelehed ka siia üles.</p>
+        <h2 class="kataloogTitle">Nutitualettide kataloog</h2>
+        <p class="kataloogIntro">Alla kerides avanevad järjest vaated helguse neljale bideega targale tualetile. Toodete tehniliste andmete jaoks saada meile päring! Paneme peagi tootelehed ka siia üles.</p>
         <div class="kataloogIntroBtn">
             <button class="kataloogDownload" id="downloadAllBtn">Lae korraga alla kõik tootelehed</button>
         </div>

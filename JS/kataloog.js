@@ -118,12 +118,6 @@ document.querySelectorAll('.kataloogStage').forEach((stage, i) => {
         renderText();
     }
 
-    // Preload all images
-    product.images.forEach(src => {
-        const pre = new Image();
-        pre.src = src;
-    });
-
     stage.querySelector('.kataloogPrev').addEventListener('click', () => {
         imgIndex = (imgIndex - 1 + product.images.length) % product.images.length;
         renderImg();
