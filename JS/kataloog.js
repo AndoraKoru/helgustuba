@@ -19,7 +19,7 @@ const products = [
             "Assets/Images/Catalogue/Kohina/Kohina 16.webp",
         ],
         pdf: "Assets/Images/tooteLehed/KOHINA.pdf",
-        description: "Kohina tualett on vaikse kohalolu ilu just nagu selle nimekaim – lühike veejuga, mis ei paista silma mitte oma suuruse, vaid pehme olemuse ja kerge heli kaudu. Nii toob Kohina vannituppa õhulisust ja elegantsust. Kohinat on võimalik tellida valge, kuldse või hõbedase plaadiga.",
+        description: "Kohina nutitualett on vaikse kohalolu ilu just nagu selle nimekaim – lühike veejuga, mis ei paista silma mitte oma suuruse, vaid pehme olemuse ja kerge heli kaudu. Nii toob Kohina vannituppa õhulisust ja elegantsust. Kohinat on võimalik tellida valge, kuldse või hõbedase plaadiga.",
         specs: "Mõõdud: 600×370×360 mm. Iste kõrgus: 440 mm. Neto kaal: 34,5 kg. Vool: 220V / 50Hz. Loputusveepaak: 4,8 L. Loputusvee kogus: 2,7 L / 4,2 L. Loputuskast: sisseehitatud. Äravool: tahavooluga 180 mm (allavooluga variant tellitav 300–400 mm). Sertifikaat: CE, EN1717, RoHS. Veesurve: 0,1 MPa – 0,75 MPa. Kaabli pikkus: 1,5 m."
     },
     {
@@ -38,7 +38,7 @@ const products = [
             "Assets/Images/Catalogue/Valaste/ei Valge lahti.webp",
         ],
         pdf: "Assets/Images/tooteLehed/VALASTE.pdf",
-        description: "Valaste on tualett, mis on saanud inspiratsiooni Baltimaade kõrgeima tehisliku joa geoloogilise kihistuse ilust. Selle tualeti kombineeritavad värvide lahendused ülaplaadil ja külgedel loovad disaini, mis meenutab paekalda kihistusi ja toob vannituppa sügavuse ning isikupära. Valastet on võimalik tellida üleni valgena, aga ka kuldse ja/või hõbedase plaadi ja/või äärega.",
+        description: "Valaste on nutitualett, mis on saanud inspiratsiooni Baltimaade kõrgeima tehisliku joa geoloogilise kihistuse ilust. Selle nutitualeti kombineeritavad värvide lahendused ülaplaadil ja külgedel loovad disaini, mis meenutab paekalda kihistusi ja toob vannituppa sügavuse ning isikupära. Valastet on võimalik tellida üleni valgena, aga ka kuldse ja/või hõbedase plaadi ja/või äärega.",
         specs: "Mõõdud: 605×380×355 mm. Iste kõrgus: 440 mm. Neto kaal: 34,5 kg. Vool: 220V / 50Hz. Loputusveepaak: 4,8 L. Loputusvee kogus: 2,7 L / 4,2 L. Loputuskast: sisseehitatud. Äravool: tahavooluga 180 mm (allavooluga variant tellitav 300–400 mm). Sertifikaat: CE, EN1717, RoHS. Veesurve: 0,1 MPa – 0,75 MPa. Kaabli pikkus: 1,5 m."
     },
     {

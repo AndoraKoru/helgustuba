@@ -1309,6 +1309,7 @@ p {
 /* ── FUNCTIONS VIDEO ── */
 
 .functionsVideo {
+  display: none;
   padding: 80px clamp(24px, 6vw, 120px) 100px;
   position: relative;
 }

@@ -1,7 +1,7 @@
 const slides = [
     {
         title: "Kareda vee filter",
-        desc: "Varem on Eestis tarkade tualettide parimat toimimist takistanud kare vesi. Helguse tualettide integreeritud filter pehmendab vett, kaitseb katlakivi eest ja pikendab seeläbi tualeti eluiga. See on meie jaoks üks olulisemaid detaile.",
+        desc: "Varem on Eestis tarkade nutitualettide parimat toimimist takistanud kare vesi. Helguse nutitualettide integreeritud filter pehmendab vett, kaitseb katlakivi eest ja pikendab seeläbi nutitualeti eluiga. See on meie jaoks üks olulisemaid detaile.",
         img: "Assets/Images/Functions/karedaVeeFilter.jpg",
         webp: "Assets/Images/Functions/karedaVeeFilter.webp"
     },
@@ -25,9 +25,9 @@ const slides = [
         webp: "Assets/Images/Functions/sisseEhitatudVeepaak.webp"
     },
     {
-        title: "Iseavanev ja -sulguv tualetikaas",
-        mobileTitle: "Ise avanev ja<br>sulguv tualetikaas",
-        desc: "Ise avanev ja sulguv tualetikaas kõrgendab tajutud modernsuse tunnet.",
+        title: "Iseavanev ja -sulguv nutitualetikaas",
+        mobileTitle: "Ise avanev ja<br>sulguv nutitualetikaas",
+        desc: "Ise avanev ja sulguv nutitualetikaas kõrgendab tajutud modernsuse tunnet.",
         img: "Assets/Images/Functions/iseAvanevWCKaas.jpg",
         webp: "Assets/Images/Functions/iseavanevWcKaas.webp"
     },
