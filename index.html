@@ -141,10 +141,10 @@
     <section class="functionsVideo">
         <h2>Vaata ka videot!</h2>
         <div class="functionsVideoWrap">
-            <video autoplay muted loop playsinline>
-                <!-- TODO: convert functionsShortVideo.mov (89 MB) to MP4+WebM — see manual fixes below -->
-                <source src="Assets/Images/Functions/functionsShortVideo.mov" type="video/quicktime">
-            </video>
+            <!-- Section is hidden (display: none) pending a decision on this feature.
+                 No <video> tag while hidden — the old <source> pointed at a stale/missing
+                 filename and was still being fetched (and 404ing) despite the section
+                 having no visible presence. -->
         </div>
     </section>
 
