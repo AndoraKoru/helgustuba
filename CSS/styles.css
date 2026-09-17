@@ -1468,6 +1468,10 @@ p {
   object-position: center 70%;
 }
 
+.introProductImage--shiftUpSlight img {
+  object-position: center 42%;
+}
+
 .introProductContent {
   display: flex;
   flex-direction: column;
