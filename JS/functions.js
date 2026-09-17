@@ -1,9 +1,9 @@
 const slides = [
     {
-        title: "Kareda vee filter",
-        desc: "Varem on Eestis tarkade nutitualettide parimat toimimist takistanud kare vesi. Helguse nutitualettide integreeritud filter pehmendab vett, kaitseb katlakivi eest ja pikendab seeläbi nutitualeti eluiga. See on meie jaoks üks olulisemaid detaile.",
-        img: "Assets/Images/Functions/karedaVeeFilter.jpg",
-        webp: "Assets/Images/Functions/karedaVeeFilter.webp"
+        title: "Pesufunktsioon",
+        desc: "Kõikidel nutikatel wc-pottidel on kaks pesufunktsiooni: naiste intiimpesu ja tagapesu. Lisaks saab valida kolme vee pihustamise stiili vahel: staatiline juga, edasi-tagasi juga või lai hajutatud massaažijuga. Nutitualett salvestab viimati kasutatud funktsiooni – kuidas neid vahetada, vaata kasutusjuhendist.",
+        img: "Assets/Images/Functions/pesufunktsioon.jpg",
+        webp: "Assets/Images/Functions/pesufunktsioon.webp"
     },
     {
         title: "Reguleeritava temperatuuriga prillaud",
@@ -11,12 +11,6 @@ const slides = [
         desc: "Soojus lisab igapäevasesse kasutusse selgelt tajutavat mugavust – eriti jahedatel hommikutel või külmemas vannitoas. Kui juba ära harjud, siis tagasiteed enam ei ole. Muidugi võib prilllaua jätta ka jahedaks.",
         img: "Assets/Images/Functions/soojendatudIste.jpg",
         webp: "Assets/Images/Functions/soojendatudIste.webp"
-    },
-    {
-        title: "Pesufunktsioon",
-        desc: "Kõikidel nutikatel wc-pottidel on kaks pesufunktsiooni: naiste intiimpesu ja tagapesu. Lisaks saab valida kolme vee pihustamise stiili vahel: staatiline juga, edasi-tagasi juga või lai hajutatud massaažijuga. Nutitualett salvestab viimati kasutatud funktsiooni – kuidas neid vahetada, vaata kasutusjuhendist.",
-        img: "Assets/Images/Functions/pesufunktsioon.jpg",
-        webp: "Assets/Images/Functions/pesufunktsioon.webp"
     },
     {
         title: "Steriilne UV puhastus",
