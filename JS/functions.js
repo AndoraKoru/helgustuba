@@ -13,6 +13,12 @@ const slides = [
         webp: "Assets/Images/Functions/soojendatudIste.webp"
     },
     {
+        title: "Pesufunktsioon",
+        desc: "Kõikidel nutikatel wc-pottidel on kaks pesufunktsiooni: naiste intiimpesu ja tagapesu. Lisaks saab valida kolme vee pihustamise stiili vahel: staatiline juga, edasi-tagasi juga või lai hajutatud massaažijuga. Nutitualett salvestab viimati kasutatud funktsiooni – kuidas neid vahetada, vaata kasutusjuhendist.",
+        img: "Assets/Images/Functions/pesufunktsioon.jpg",
+        webp: "Assets/Images/Functions/pesufunktsioon.webp"
+    },
+    {
         title: "Steriilne UV puhastus",
         desc: "UV-valgus steriliseerib poti pinna automaatselt pärast igat kasutust. Selline bakterite vähendamine tagab päriselt puhta ja hügieenilise kogemuse.",
         img: "Assets/Images/Functions/steriilneUvPuhastus.jpg",
